@@ -62,36 +62,109 @@ CAPTURE THE MOMENT</h1>
       </div>
     </div>
   </section>
-  <!-- Who We Are / About Section -->
+  <!-- ======= WHO WE ARE ======= -->
   <section id="about" class="relative py-24 sm:py-32 overflow-hidden">
     <img src="assets/about-bg.jpg" alt="Studio background" class="absolute inset-0 h-full w-full object-cover opacity-20" />
     <div class="absolute inset-0 bg-yare-950/80 mix-blend-multiply"></div>
 
-    <div class="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-12 px-6 md:flex-row md:px-12 lg:gap-20">
-      <!-- Text Column -->
-      <div class="md:w-2/5">
-        <h2 class="mb-6 text-4xl font-extrabold tracking-tight text-primary sm:text-5xl md:text-6xl">Who We Are</h2>
-        <p class="mb-6 text-lg leading-relaxed text-secondary/90">
-          Yare Picture Studios is a collective of filmmakers, storytellers, and dreamers committed to turning bold ideas into unforgettable visual experiences. From development through final delivery, our team brings cinematic precision and artistic passion to every frame.
-        </p>
-        <p class="text-lg leading-relaxed text-secondary/90">
-          Whether it’s a feature film, commercial campaign, or branded content, we combine cutting-edge technology with a keen eye for narrative to craft stories that resonate worldwide.
-        </p>
-      </div>
+    <div class="relative z-10 mx-auto max-w-3xl px-6 md:px-12">
+      <!-- Heading first -->
+      <h2 class="mb-8 text-4xl font-extrabold tracking-tight text-primary sm:text-5xl md:text-6xl text-center md:text-left">Who We Are</h2>
 
-      <!-- Image Column -->
-      <div class="relative w-full mt-12 md:mt-0 md:w-3/5">
-        <img src="assets/images/Roof_top.png" alt="Director silhouette on set" class="w-full rounded-lg shadow-xl ring-1 ring-secondary/20" />
-        <!-- Overlay Callout: static below img on mobile, overlaid on md+ -->
-        <div class="mt-4 rounded-lg bg-third/70 p-5 backdrop-blur-sm ring-1 ring-secondary/10 md:absolute md:bottom-4 md:right-4 md:mt-0 md:max-w-xs">
-          <h3 class="mb-2 text-xl sm:text-2xl font-bold text-secondary">Our Team</h3>
-          <p class="mb-4 text-xs sm:text-sm leading-relaxed text-secondary/80">
-            A powerhouse of directors, cinematographers & producers turning vision into award‑winning visuals.
-          </p>
-          <a href="#team" class="inline-block border border-primary px-5 py-2 text-xs sm:text-sm font-medium uppercase tracking-wide text-secondary transition hover:bg-primary hover:text-third focus:outline-none focus:ring-2 focus:ring-primary/60">Meet the Crew</a>
-        </div>
-      </div>
+      <!-- Image + overlay call-out -->
+      <figure class="relative mb-12">
+        <img src="assets/images/Roof_top.png" alt="Director silhouette on set" class="w-full rounded-lg shadow-xl ring-1 ring-secondary/20 object-cover" />
+        <figcaption class="mt-4 rounded-lg bg-third/70 p-5 backdrop-blur-sm ring-1 ring-secondary/10 md:absolute md:bottom-4 md:right-4 md:mt-0 md:max-w-xs">
+          <h3 class="mb-2 text-xl font-bold text-secondary">Our Team</h3>
+          <p class="mb-4 text-sm leading-relaxed text-secondary/80">A powerhouse of directors, cinematographers & producers turning vision into award-winning visuals.</p>
+          <a href="#team" class="inline-block border border-primary px-6 py-2 text-sm font-medium uppercase tracking-wide text-secondary transition hover:bg-primary hover:text-third focus:outline-none focus:ring-2 focus:ring-primary/60">Meet the Crew</a>
+        </figcaption>
+      </figure>
+
+      <!-- Paragraphs -->
+      <p class="mb-6 text-lg leading-relaxed text-secondary/90">Yare Picture Studios is a collective of filmmakers, storytellers, and dreamers committed to turning bold ideas into unforgettable visual experiences. From development through final delivery, our team brings cinematic precision and artistic passion to every frame.</p>
+      <p class="text-lg leading-relaxed text-secondary/90">Whether it’s a feature film, commercial campaign, or branded content, we combine cutting-edge technology with a keen eye for narrative to craft stories that resonate worldwide.</p>
     </div>
   </section>
+<!-- ======= OUR SERVICES ======= -->
+<section id="services" class="relative bg-fourth/10 py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-6 md:px-12">
+    <h2 class="mb-16 text-center text-4xl font-extrabold tracking-tight text-primary sm:text-5xl md:text-6xl">
+      Our Services
+    </h2>
+
+    <div class="space-y-24">
+      <!-- Documentary -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2 order-2 md:order-1">
+          <h3 class="mb-4 text-3xl font-bold text-secondary">Documentary</h3>
+          <p class="mb-6 text-secondary/90 leading-relaxed">
+            Long-form or short-form docs crafted with journalistic rigor and cinematic flair.
+          </p>
+          <a href="#documentary"
+             class="inline-block border border-primary px-6 py-2 text-sm font-medium uppercase tracking-wide text-secondary transition hover:bg-primary hover:text-third">
+            Explore Documentary
+          </a>
+        </div>
+        <img src="assets/images/services/documentary.jpg"
+             alt="Documentary"
+             class="md:w-1/2 w-full rounded-lg shadow-lg ring-1 ring-secondary/20 object-cover order-1 md:order-2" />
+      </div>
+
+      <!-- Narrative -->
+      <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+        <div class="md:w-1/2 order-2">
+          <h3 class="mb-4 text-3xl font-bold text-secondary">Narrative</h3>
+          <p class="mb-6 text-secondary/90 leading-relaxed">
+            Story-driven feature and short films with powerful characters and evocative worlds.
+          </p>
+          <a href="#narrative"
+             class="inline-block border border-primary px-6 py-2 text-sm font-medium uppercase tracking-wide text-secondary transition hover:bg-primary hover:text-third">
+            Explore Narrative
+          </a>
+        </div>
+        <img src="assets/images/services/narrative.jpg"
+             alt="Narrative"
+             class="md:w-1/2 w-full rounded-lg shadow-lg ring-1 ring-secondary/20 object-cover order-1" />
+      </div>
+
+      <!-- Commercial -->
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2 order-2 md:order-1">
+          <h3 class="mb-4 text-3xl font-bold text-secondary">Commercial</h3>
+          <p class="mb-6 text-secondary/90 leading-relaxed">
+            High-impact advertising spots that capture attention and drive brand engagement.
+          </p>
+          <a href="#commercial"
+             class="inline-block border border-primary px-6 py-2 text-sm font-medium uppercase tracking-wide text-secondary transition hover:bg-primary hover:text-third">
+            Explore Commercial
+          </a>
+        </div>
+        <img src="assets/images/services/commercial.jpg"
+             alt="Commercial"
+             class="md:w-1/2 w-full rounded-lg shadow-lg ring-1 ring-secondary/20 object-cover order-1 md:order-2" />
+      </div>
+
+      <!-- Production -->
+      <div class="flex flex-col md:flex-row-reverse items-center gap-10">
+        <div class="md:w-1/2 order-2">
+          <h3 class="mb-4 text-3xl font-bold text-secondary">Production</h3>
+          <p class="mb-6 text-secondary/90 leading-relaxed">
+            End-to-end production services—from pre-viz to post—ensuring every frame is flawless.
+          </p>
+          <a href="#production"
+             class="inline-block border border-primary px-6 py-2 text-sm font-medium uppercase tracking-wide text-secondary transition hover:bg-primary hover:text-third">
+            Explore Production
+          </a>
+        </div>
+        <img src="assets/images/services/production.jpg"
+             alt="Production"
+             class="md:w-1/2 w-full rounded-lg shadow-lg ring-1 ring-secondary/20 object-cover order-1" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
 </body>
 </html>
