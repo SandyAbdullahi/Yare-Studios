@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Yare Picture Studios</title>
+
+  <!-- Tailwind CDN (play mode) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary:  '#c3403e',
+            secondary:'#f2f0ef',
+            third:    '#000000',
+            fourth:   '#4d4d4d',
+          },
+          fontFamily:{ sans:['"Inter Tight"', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    video::-webkit-media-controls { display:none!important; }
+  </style>
+</head>
+<body class="bg-third text-secondary antialiased">
+
+  <!-- =========  NAV  ========= -->
+  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
+    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+
+    <!-- desktop links -->
+    <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+      <a href="index.html"  class="hover:text-primary">Home</a>
+      <a href="about.html"  class="hover:text-primary">About&nbsp;Us</a>
+      <a href="services.html" class="text-primary">Services</a>
+      <a href="work.html"   class="hover:text-primary">Our&nbsp;Work</a>
+      <a href="contact.html" class="hover:text-primary">Contact</a>
+    </nav>
+
+    <!-- hamburger -->
+    <button id="nav-toggle" class="sm:hidden">
+      <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2"
+           viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
+           d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </header>
+
+  <!-- mobile overlay -->
+  <div id="mobile-menu"
+       class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center gap-8
+              bg-third/80 backdrop-blur-md backdrop-saturate-150">
+    <button id="nav-close" class="absolute top-6 right-6 text-3xl text-secondary">&times;</button>
+    <a href="index.html"     class="text-xl uppercase tracking-widest hover:text-primary">Home</a>
+    <a href="about.html"     class="text-xl uppercase tracking-widest hover:text-primary">About&nbsp;Us</a>
+    <a href="services.html"  class="text-xl uppercase tracking-widest text-primary">Services</a>
+    <a href="work.html"      class="text-xl uppercase tracking-widest hover:text-primary">Our&nbsp;Work</a>
+    <a href="contact.html"   class="text-xl uppercase tracking-widest hover:text-primary">Contact</a>
+  </div>
+
+  <!-- =========  HERO  ========= -->
+  <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
+    <img src="assets/images/services/banner.png"
+         alt="Camera crane on set"
+         class="absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
+    <h1 class="relative z-10 px-6 text-center text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
+      Our&nbsp;Services
+    </h1>
+  </section>
+
+ <!-- ======= SERVICES (CARD GRID) ======= -->
+<section id="services" class="bg-third py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-6 md:px-12">
+    <h2 class="mb-16 text-center text-4xl sm:text-5xl font-extrabold tracking-tight text-primary">
+      Our Services
+    </h2>
+
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <!-- Card -->
+      <a href="#documentary" class="group relative block h-72 overflow-hidden rounded-lg">
+        <img src="assets/images/services/documentary.jpg"
+             alt="Documentary"
+             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+          <h3 class="mb-2 text-2xl font-bold text-secondary">Documentary</h3>
+          <p class="text-sm leading-snug text-secondary/80">
+            Truth-driven storytelling<br>with cinematic craft
+          </p>
+        </div>
+      </a>
+
+      <!-- Repeat ↓ for Narrative / Commercial / Production -->
+      <a href="#narrative" class="group relative block h-72 overflow-hidden rounded-lg">
+        <img src="assets/images/services/narrative.jpg" alt="Narrative"
+             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+          <h3 class="mb-2 text-2xl font-bold text-secondary">Narrative</h3>
+          <p class="text-sm leading-snug text-secondary/80">
+            Character-driven films<br>that move audiences
+          </p>
+        </div>
+      </a>
+
+      <a href="#commercial" class="group relative block h-72 overflow-hidden rounded-lg">
+        <img src="assets/images/services/commercial.jpg" alt="Commercial"
+             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+          <h3 class="mb-2 text-2xl font-bold text-secondary">Commercial</h3>
+          <p class="text-sm leading-snug text-secondary/80">
+            High-impact spots<br>for bold brands
+          </p>
+        </div>
+      </a>
+
+      <a href="#production" class="group relative block h-72 overflow-hidden rounded-lg">
+        <img src="assets/images/services/production.jpg" alt="Production"
+             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+          <h3 class="mb-2 text-2xl font-bold text-secondary">Production</h3>
+          <p class="text-sm leading-snug text-secondary/80">
+            End-to-end execution<br>from prep to delivery
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- =========  CTA  ========= -->
+  <section class="bg-primary py-20 text-center text-secondary">
+    <h2 class="mx-auto mb-6 max-w-3xl px-6 text-3xl sm:text-4xl font-extrabold tracking-tight">
+      Have a project in mind?
+    </h2>
+    <a href="contact.html"
+       class="inline-block border-2 border-third bg-third px-10 py-4 text-lg font-medium uppercase tracking-wider
+              text-primary transition hover:bg-transparent hover:text-third">
+      Let’s Talk
+    </a>
+  </section>
+
+
+    <!-- FOOTER (reuse from home) -->
+    <footer class="bg-fourth pt-20 pb-0 text-secondary">
+        <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-4 md:px-12">
+            <div>
+                <h3 class="text-3xl font-extrabold text-primary">YARE</h3>
+                <p class="mt-4 text-sm leading-relaxed text-secondary/80 max-w-xs">Cinematic storytellers shaping bold
+                    ideas into unforgettable films and campaigns.</p>
+            </div>
+            <div>
+                <h4 class="mb-4 text-lg font-semibold text-primary">Studio</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#story" class="hover:text-primary">Story</a></li>
+                    <li><a href="#team" class="hover:text-primary">Team</a></li>
+                    <li><a href="index.html#clients" class="hover:text-primary">Clients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-4 text-lg font-semibold text-primary">Contact</h4>
+                <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
+                </p>
+                <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
+                        class="hover:text-primary">info@yarepicturestudios.com</a><br>+254&nbsp;700&nbsp;000000</p>
+            </div>
+            <div>
+                <iframe class="h-40 w-full rounded-lg ring-1 ring-primary/30" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.1423635218688!2d36.806499615923364!3d-1.299463135893403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15daf15fee55%3A0x7b5f1cb357f1dab0!2sThe%20Mall%2C%20Westlands!5e0!3m2!1sen!2ske!4v1685643300000!5m2!1sen!2ske"></iframe>
+            </div>
+        </div>
+        <div class="mt-12 bg-primary py-4 text-center text-xs font-medium uppercase tracking-widest text-third">©
+            2025&nbsp;Yare Picture Studios — All&nbsp;Rights&nbsp;Reserved</div>
+    </footer>
+  <!-- =========  JS  ========= -->
+  <script>
+    // Mobile menu toggle
+    const toggle  = document.getElementById('nav-toggle');
+    const close   = document.getElementById('nav-close');
+    const menu    = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    close.addEventListener('click', () => menu.classList.add('hidden'));
+    menu.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => menu.classList.add('hidden'))
+    );
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
