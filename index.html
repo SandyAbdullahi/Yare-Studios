@@ -44,7 +44,7 @@
     </button>
   </header>
 
-<!-- HERO SECTION with decorative lines -->
+  <!-- HERO SECTION -->
   <section class="relative h-screen w-full overflow-hidden">
     <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
       <source src="assets/hero.webm" type="video/mp4" />
@@ -52,10 +52,15 @@
     </video>
     <div class="absolute inset-0 bg-yare-950/70 mix-blend-multiply"></div>
 
-    <!-- Vertical line -->
+    <!-- Decorative lines -->
     <div class="absolute left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 h-[70%] w-px bg-secondary/60"></div>
-    <!-- Horizontal line -->
     <div class="absolute bottom-8 left-1/2 -translate-x-1/2 h-px w-[80%] bg-secondary/60"></div>
+
+    <!-- Recording timer -->
+    <div class="absolute bottom-14 left-6 flex items-center space-x-2 font-mono text-sm text-secondary">
+      <span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+      <span id="rec-timer">00:00</span>
+    </div>
 
     <div class="relative z-10 flex h-full items-center justify-end">
       <div class="w-1/2 pr-6 sm:pr-10 lg:pr-20 xl:pr-28 text-right flex flex-col items-end">
@@ -242,4 +247,14 @@
     <div class="mt-12 bg-primary pt-4 pb-4 text-center text-xs font-medium uppercase tracking-widest text-third">© 2025&nbsp;Yare Picture Studios — All&nbsp;Rights&nbsp;Reserved</div>
   </footer>
 </body>
+  <script>
+    // Simple recording timer (minutes:seconds)
+    let seconds = 0;
+    setInterval(() => {
+      seconds++;
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      document.getElementById('rec-timer').textContent = `${m}:${s}`;
+    }, 1000);
+  </script>
 </html>
