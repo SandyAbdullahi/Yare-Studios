@@ -1,150 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | Yare Picture Studios</title>
 
-  <!-- Tailwind CDN (play mode) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary:  '#c3403e',
-            secondary:'#f2f0ef',
-            third:    '#000000',
-            fourth:   '#4d4d4d',
-          },
-          fontFamily:{ sans:['"Inter Tight"', 'sans-serif'] },
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | Yare Picture Studios</title>
+
+    <!-- Tailwind CDN (play mode) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c3403e',
+                        secondary: '#f2f0ef',
+                        third: '#000000',
+                        fourth: '#4d4d4d',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter Tight"', 'sans-serif']
+                    },
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    video::-webkit-media-controls { display:none!important; }
-  </style>
+    </script>
+    <style>
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-box {
+            position: relative;
+            margin: var(--tw-space-y-reverse) auto;
+            top: 10%;
+            max-width: 24rem;
+            background: #000;
+            padding: 2rem 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f2f0ef;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body {
+            font-size: 0.95rem;
+            color: #f2f0efcc;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border: 2px solid #c3403e;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #c3403e;
+            transition: .2s;
+        }
+
+        .modal-btn:hover {
+            background: #c3403e;
+            color: #000;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0.75rem;
+            right: 1rem;
+            font-size: 1.75rem;
+            line-height: 1;
+            color: #f2f0ef;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body class="bg-third text-secondary antialiased">
 
-  <!-- =========  NAV  ========= -->
-  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
-    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+    <!-- =========  NAV  ========= -->
+    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
+        <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
 
-    <!-- desktop links -->
-    <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
-      <a href="index.html"  class="hover:text-primary">Home</a>
-      <a href="about.html"  class="hover:text-primary">About&nbsp;Us</a>
-      <a href="services.html" class="text-primary">Services</a>
-      <a href="work.html"   class="hover:text-primary">Our&nbsp;Work</a>
-      <a href="contact.html" class="hover:text-primary">Contact</a>
-    </nav>
+        <!-- desktop links -->
+        <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+            <a href="services.html" class="text-primary">Services</a>
+            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+            <a href="contact.html" class="hover:text-primary">Contact</a>
+        </nav>
 
-    <!-- hamburger -->
-    <button id="nav-toggle" class="sm:hidden">
-      <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2"
-           viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round"
-           d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-  </header>
+        <!-- hamburger -->
+        <button id="nav-toggle" class="sm:hidden">
+            <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+    </header>
 
-  <!-- mobile overlay -->
-  <div id="mobile-menu"
-       class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center gap-8
+    <!-- mobile overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center gap-8
               bg-third/80 backdrop-blur-md backdrop-saturate-150">
-    <button id="nav-close" class="absolute top-6 right-6 text-3xl text-secondary">&times;</button>
-    <a href="index.html"     class="text-xl uppercase tracking-widest hover:text-primary">Home</a>
-    <a href="about.html"     class="text-xl uppercase tracking-widest hover:text-primary">About&nbsp;Us</a>
-    <a href="services.html"  class="text-xl uppercase tracking-widest text-primary">Services</a>
-    <a href="work.html"      class="text-xl uppercase tracking-widest hover:text-primary">Our&nbsp;Work</a>
-    <a href="contact.html"   class="text-xl uppercase tracking-widest hover:text-primary">Contact</a>
-  </div>
-
-  <!-- =========  HERO  ========= -->
-  <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
-    <img src="assets/images/services/banner.png"
-         alt="Camera crane on set"
-         class="absolute inset-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
-    <h1 class="relative z-10 px-6 text-center text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
-      Our&nbsp;Services
-    </h1>
-  </section>
-
- <!-- ======= SERVICES (CARD GRID) ======= -->
-<section id="services" class="bg-third py-24 sm:py-32">
-  <div class="mx-auto max-w-6xl px-6 md:px-12">
-    <h2 class="mb-16 text-center text-4xl sm:text-5xl font-extrabold tracking-tight text-primary">
-      Our Services
-    </h2>
-
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-      <!-- Card -->
-      <a href="#documentary" class="group relative block h-72 overflow-hidden rounded-lg">
-        <img src="assets/images/services/documentary.jpg"
-             alt="Documentary"
-             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
-        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h3 class="mb-2 text-2xl font-bold text-secondary">Documentary</h3>
-          <p class="text-sm leading-snug text-secondary/80">
-            Truth-driven storytelling<br>with cinematic craft
-          </p>
-        </div>
-      </a>
-
-      <!-- Repeat ↓ for Narrative / Commercial / Production -->
-      <a href="#narrative" class="group relative block h-72 overflow-hidden rounded-lg">
-        <img src="assets/images/services/narrative.jpg" alt="Narrative"
-             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
-        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h3 class="mb-2 text-2xl font-bold text-secondary">Narrative</h3>
-          <p class="text-sm leading-snug text-secondary/80">
-            Character-driven films<br>that move audiences
-          </p>
-        </div>
-      </a>
-
-      <a href="#commercial" class="group relative block h-72 overflow-hidden rounded-lg">
-        <img src="assets/images/services/commercial.jpg" alt="Commercial"
-             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
-        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h3 class="mb-2 text-2xl font-bold text-secondary">Commercial</h3>
-          <p class="text-sm leading-snug text-secondary/80">
-            High-impact spots<br>for bold brands
-          </p>
-        </div>
-      </a>
-
-      <a href="#production" class="group relative block h-72 overflow-hidden rounded-lg">
-        <img src="assets/images/services/production.jpg" alt="Production"
-             class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
-        <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
-          <h3 class="mb-2 text-2xl font-bold text-secondary">Production</h3>
-          <p class="text-sm leading-snug text-secondary/80">
-            End-to-end execution<br>from prep to delivery
-          </p>
-        </div>
-      </a>
+        <button id="nav-close" class="absolute top-6 right-6 text-3xl text-secondary">&times;</button>
+        <a href="index.html" class="text-xl uppercase tracking-widest hover:text-primary">Home</a>
+        <a href="about.html" class="text-xl uppercase tracking-widest hover:text-primary">About&nbsp;Us</a>
+        <a href="services.html" class="text-xl uppercase tracking-widest text-primary">Services</a>
+        <a href="work.html" class="text-xl uppercase tracking-widest hover:text-primary">Our&nbsp;Work</a>
+        <a href="contact.html" class="text-xl uppercase tracking-widest hover:text-primary">Contact</a>
     </div>
-  </div>
-</section>
 
-  <!-- =========  CTA  ========= -->
-  <section class="bg-primary py-20 text-center text-secondary">
-    <h2 class="mx-auto mb-6 max-w-3xl px-6 text-3xl sm:text-4xl font-extrabold tracking-tight">
-      Have a project in mind?
-    </h2>
-    <a href="contact.html"
-       class="inline-block border-2 border-third bg-third px-10 py-4 text-lg font-medium uppercase tracking-wider
+    <!-- =========  HERO  ========= -->
+    <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
+        <img src="assets/images/services/banner.png" alt="Camera crane on set"
+            class="absolute inset-0 h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
+        <h1 class="relative z-10 px-6 text-center text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
+            Our&nbsp;Services
+        </h1>
+    </section>
+
+    <!-- ======= SERVICES (CARD GRID + MODALS) ======= -->
+    <section id="services" class="bg-third py-24 sm:py-32">
+        <div class="mx-auto max-w-6xl px-6 md:px-12">
+            <h2 class="mb-16 text-center text-4xl sm:text-5xl font-extrabold tracking-tight text-primary">
+                Our Services
+            </h2>
+
+            <!-- Card grid -->
+            <div class="grid gap-8 sm:grid-cols-2">
+                <!-- CARD TEMPLATE -->
+                <button type="button" data-service="documentary"
+                    class="group relative block h-72 w-full overflow-hidden rounded-lg focus:outline-none">
+                    <img src="assets/images/services/documentary.jpg" alt="Documentary"
+                        class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+                    <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+                        <h3 class="mb-2 text-2xl font-bold text-secondary">Documentary</h3>
+                        <p class="text-sm leading-snug text-secondary/80">
+                            Truth-driven storytelling
+                        </p>
+                    </div>
+                </button>
+
+                <!-- repeat for the other three -->
+                <button type="button" data-service="narrative"
+                    class="group relative block h-72 w-full overflow-hidden rounded-lg focus:outline-none">
+                    <img src="assets/images/services/narrative.jpg" alt="Narrative"
+                        class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+                    <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+                        <h3 class="mb-2 text-2xl font-bold text-secondary">Narrative</h3>
+                        <p class="text-sm leading-snug text-secondary/80">Character-led films</p>
+                    </div>
+                </button>
+
+                <button type="button" data-service="commercial"
+                    class="group relative block h-72 w-full overflow-hidden rounded-lg focus:outline-none">
+                    <img src="assets/images/services/commercial.jpg" alt="Commercial"
+                        class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+                    <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+                        <h3 class="mb-2 text-2xl font-bold text-secondary">Commercial</h3>
+                        <p class="text-sm leading-snug text-secondary/80">High-impact spots</p>
+                    </div>
+                </button>
+
+                <button type="button" data-service="production"
+                    class="group relative block h-72 w-full overflow-hidden rounded-lg focus:outline-none">
+                    <img src="assets/images/services/production.jpg" alt="Production"
+                        class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+                    <div class="relative z-10 flex h-full flex-col items-center justify-center text-center px-4">
+                        <h3 class="mb-2 text-2xl font-bold text-secondary">Production</h3>
+                        <p class="text-sm leading-snug text-secondary/80">End-to-end execution</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- ========== MODALS ========== -->
+        <!-- Each modal is hidden until its card is clicked -->
+        <div id="modal-service-documentary" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-box">
+                <button class="modal-close">&times;</button>
+                <h3 class="modal-title">Documentary Filmmaking</h3>
+                <p class="modal-body">
+                    We craft vérité or hybrid documentaries rooted in deep research, striking visuals,
+                    and intimate access—guiding your story from pitch deck to festival premiere.
+                </p>
+                <a href="contact.html" class="modal-btn">Start a Documentary</a>
+            </div>
+        </div>
+
+        <div id="modal-service-narrative" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-box">
+                <button class="modal-close">&times;</button>
+                <h3 class="modal-title">Narrative Production</h3>
+                <p class="modal-body">
+                    Features, shorts, series—our writers, directors, and production crew bring
+                    emotionally charged stories to life with cinematic flair.
+                </p>
+                <a href="contact.html" class="modal-btn">Discuss a Script</a>
+            </div>
+        </div>
+
+        <div id="modal-service-commercial" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-box">
+                <button class="modal-close">&times;</button>
+                <h3 class="modal-title">Commercial Content</h3>
+                <p class="modal-body">
+                    From 6-second pre-rolls to multi-platform brand films—we create thumb-stopping
+                    visuals that convert.
+                </p>
+                <a href="contact.html" class="modal-btn">Book a Campaign</a>
+            </div>
+        </div>
+
+        <div id="modal-service-production" class="modal hidden">
+            <div class="modal-overlay"></div>
+            <div class="modal-box">
+                <button class="modal-close">&times;</button>
+                <h3 class="modal-title">Full Production Services</h3>
+                <p class="modal-body">
+                    Creative development, crew hire, equipment, post… Our turnkey workflow keeps every
+                    frame on time and on budget.
+                </p>
+                <a href="contact.html" class="modal-btn">Plan a Shoot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========  CTA  ========= -->
+    <section class="bg-primary py-20 text-center text-secondary">
+        <h2 class="mx-auto mb-6 max-w-3xl px-6 text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Have a project in mind?
+        </h2>
+        <a href="contact.html" class="inline-block border-2 border-third bg-third px-10 py-4 text-lg font-medium uppercase tracking-wider
               text-primary transition hover:bg-transparent hover:text-third">
-      Let’s Talk
-    </a>
-  </section>
+            Let’s Talk
+        </a>
+    </section>
 
 
     <!-- FOOTER (reuse from home) -->
@@ -179,19 +297,41 @@
         <div class="mt-12 bg-primary py-4 text-center text-xs font-medium uppercase tracking-widest text-third">©
             2025&nbsp;Yare Picture Studios — All&nbsp;Rights&nbsp;Reserved</div>
     </footer>
-  <!-- =========  JS  ========= -->
-  <script>
-    // Mobile menu toggle
-    const toggle  = document.getElementById('nav-toggle');
-    const close   = document.getElementById('nav-close');
-    const menu    = document.getElementById('mobile-menu');
-    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
-    close.addEventListener('click', () => menu.classList.add('hidden'));
-    menu.querySelectorAll('a').forEach(link =>
-      link.addEventListener('click', () => menu.classList.add('hidden'))
-    );
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <!-- =========  JS  ========= -->
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('nav-toggle');
+        const close = document.getElementById('nav-close');
+        const menu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+        close.addEventListener('click', () => menu.classList.add('hidden'));
+        menu.querySelectorAll('a').forEach(link =>
+            link.addEventListener('click', () => menu.classList.add('hidden'))
+        );
+        // Year
+        // document.getElementById('year').textContent = new Date().getFullYear();
+
+        const openBtns = document.querySelectorAll('[data-service]');
+        const modals = document.querySelectorAll('.modal');
+
+        // open modal
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const key = btn.getAttribute('data-service');
+                document.getElementById(`modal-service-${key}`).classList.remove('hidden');
+            })
+        });
+
+        // close modal (x button or overlay click)
+        modals.forEach(modal => {
+            modal.addEventListener('click', e => {
+                if (e.target.classList.contains('modal-overlay') || e.target.classList.contains(
+                        'modal-close')) {
+                    modal.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
