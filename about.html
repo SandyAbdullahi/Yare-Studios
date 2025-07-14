@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About – Yare Picture Studios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c3403e',
+                        secondary: '#f2f0ef',
+                        third: '#000000',
+                        fourth: '#4d4d4d',
+                        yare: {
+                            950: '#042425'
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter Tight', 'sans-serif']
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-third font-sans text-secondary antialiased scroll-smooth">
+    <!-- NAVBAR -->
+    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
+        <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
+            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+            <a href="contact.html" class="hover:text-primary">Contact</a>
+        </nav>
+
+        <!-- Hamburger -->
+        <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
+            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+            <span class="block h-0.5 w-6 bg-secondary"></span>
+        </button>
+    </header>
+
+    <!-- Mobile menu overlay -->
+    <nav id="mobile-menu"
+        class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
+        <!-- Close button -->
+        <button id="nav-close" aria-label="Close menu"
+            class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
+        <div
+            class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
+            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+            <a href="contact.html" class="hover:text-primary">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO BANNER (static image) -->
+    <section class="relative flex h-[60vh] w-full items-center justify-center overflow-hidden bg-fourth">
+        <img src="assets/images/about/team_1.png" alt="Studio still"
+            class="absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div class="absolute inset-0 bg-yare-950/80 mix-blend-multiply"></div>
+        <h1
+            class="relative z-10 text-center text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-secondary">
+            Behind&nbsp;the&nbsp;Lens</h1>
+    </section>
+
+    <!-- COMPANY STORY -->
+    <section id="story" class="relative py-24 sm:py-32 bg-third">
+        <div class="mx-auto max-w-4xl px-6 md:px-12 text-secondary/90 space-y-6">
+            <h2 class="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-10">Our Story</h2>
+            <p>Founded in 2015, Yare Picture Studios began as a tight‑knit collective of filmmakers united by a passion
+                for bold visual storytelling. From humble beginnings shooting passion projects on Nairobi’s bustling
+                streets, we’ve grown into a full‑service production house delivering award‑winning work across Africa
+                and beyond.</p>
+            <p>Our ethos is simple: <span class="font-semibold text-secondary">Craft every frame with purpose.</span>
+                Whether documenting real‑life heroes or building cinematic worlds from scratch, we balance technical
+                mastery with authentic emotion—because stories resonate when they feel lived‑in, honest, and fearless.
+            </p>
+            <p>Today, our slate spans feature documentaries, narrative films, brand campaigns, and end‑to‑end production
+                solutions. But we’re still that same spirited crew chasing the next great shot—only now with bigger toys
+                and louder applause.</p>
+        </div>
+    </section>
+    <!-- TEAM SECTION -->
+    <section id="team" class="relative py-24 sm:py-32 bg-fourth/10">
+        <div class="mx-auto max-w-6xl px-6 md:px-12">
+            <h2 class="mb-16 text-center text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-primary">
+                Meet the Team
+            </h2>
+
+            <!-- Grid: 2 columns → 2 rows on desktop, 1 column on very small screens -->
+            <div class="grid gap-8 sm:grid-cols-2">
+                <!-- Card 1 -->
+                <div class="group overflow-hidden rounded-lg bg-third shadow-lg ring-1 ring-secondary/20">
+                    <img src="assets/images/about/shuria_abdi.png" alt="Abdi Shuria"
+                        class="h-64 w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="space-y-2 p-6">
+                        <h3 class="text-xl font-bold text-secondary">Abdi Shuria</h3>
+                        <p class="text-sm uppercase tracking-wide text-primary">
+                            Founder&nbsp;| Director&nbsp;| Filmmaker
+                        </p>
+                        <p class="text-xs uppercase tracking-wide text-primary">
+                            Certifications: Kenya Film Classifications Board (KFCB)
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary/80">
+                            Abdi Shuria is an award-winning Kenyan filmmaker, cinematographer and executive producer. As
+                            founder of Yare Picture Studio he helms some of East Africa’s most talked-about screen
+                            stories, including the Showmax originals Black & Blue (2024), Faithless (2023) and Igiza
+                            (2022). A graduate of the Academy of Art University (San Francisco), Abdi’s dynamic visual
+                            style was honed on the
+                            multi-award-winning satirical series The XYZ Show, which he directed through Seasons 12 &
+                            13. He continues to champion bold African narratives while mentoring the next generation of
+                            East African screen talent.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group overflow-hidden rounded-lg bg-third shadow-lg ring-1 ring-secondary/20">
+                    <img src="assets/images/about/kahiga_muriuki.png" alt="King Muriuki"
+                        class="h-64 w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="space-y-2 p-6">
+                        <h3 class="text-xl font-bold text-secondary">King Muriuki</h3>
+                        <p class="text-sm uppercase tracking-wide text-primary">
+                            Partner&nbsp;| Director&nbsp;| Filmmaker
+
+                        </p>
+                        <p class="text-xs uppercase tracking-wide text-primary">
+                            Certifications: Kenya Film Classification Board (KFCB) Awards & Honors:
+
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary/80">
+                            Kalasha 2021 International Film & Tv Awards – ‘Best Comedy’ <br />
+                            Kalasha 2019 International Film & Tv Awards – ‘Best Animation’ <br />
+                            Kalasha 2017 International Film & Tv Awards – ‘Best Comedy’ <br />
+                            Kenya International Sports Film Festival ‘Best African Film’ (2019) <br />
+                            Professional Affiliations: Media Council of Kenya (MCK), <br />
+                            International Press Association of East Africa (IPAEA), <br />
+                            Photographers Association of Kenya (PAK) , <br />
+                            The Association of Animation Artistes Kenya (A3K) </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group overflow-hidden rounded-lg bg-third shadow-lg ring-1 ring-secondary/20">
+                    <img src="assets/images/about/geoffrey.png" alt="Geoffrey Mwangi"
+                        class="h-64 w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="space-y-2 p-6">
+                        <h3 class="text-xl font-bold text-secondary">Geoffrey Mwangi</h3>
+                        <p class="text-sm uppercase tracking-wide text-primary">
+                            Partner&nbsp;| Director&nbsp;| Filmmaker
+
+                        </p>
+                        <p class="text-xs uppercase tracking-wide text-primary">
+                            Certifications: Kenya Film Classification Board (KFCB).
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary/80">
+Over 7 years field experience in documentary and human interest stories for UN Non- Profit Organisations like UNICEF Kenya, UNDAF, UNDP, Trocaire, Child
+Fund, WFP amongst others. 5 years shooting TV series for brands like Showmax
+Kenya. Projects worked on as D.O.P / DP or TV Crime Drama: Faithless on Showmax – Entire Season, TV Dramedy: Single Kiasi SSN3 on Showmax – Entire Season, Reality TV: Real Housewives of Nairobi SSN2 on Showmax – Entire Season, Mocumentary: Black and Blue – Entire Season (Showmax Oct 2024), TV Drama: Reckless, Reality TV: Mommy Club NBO, Stand-Up Comedy: Roast house by Eugene Mbugua.                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group overflow-hidden rounded-lg bg-third shadow-lg ring-1 ring-secondary/20">
+                    <img src="assets/images/about/peggy.jpg" alt="Peggy Ogollah"
+                        class="h-64 w-full object-cover transition duration-500 group-hover:scale-105" />
+                    <div class="space-y-2 p-6">
+                        <h3 class="text-xl font-bold text-secondary">Peggy Ogollah</h3>
+                        <p class="text-sm uppercase tracking-wide text-primary">
+                             Partner&nbsp;| Production Manager/Lead
+
+                        </p>
+                                                <p class="text-xs uppercase tracking-wide text-primary">
+                            Certifications: Kenya Film Classification Board (KFCB).
+                        </p>
+                        <p class="text-sm leading-relaxed text-secondary/80">
+ Experience Film Production Manager with over 10 years of expertise in overseeing large-scale productions, managing budgets, and ensuring seamless execution from
+pre-production to post-production.” Work Experience includes TV. Shows like Pete-Maisha Magic East, Reckless- Showmax , Black and blue- Showmax, Faithless -Showmax, Igiza- Showmax, Shamba shape up.- Citizen.                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- FOOTER (reuse from home) -->
+    <footer class="bg-fourth pt-20 pb-0 text-secondary">
+        <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-4 md:px-12">
+            <div>
+                <h3 class="text-3xl font-extrabold text-primary">YARE</h3>
+                <p class="mt-4 text-sm leading-relaxed text-secondary/80 max-w-xs">Cinematic storytellers shaping bold
+                    ideas into unforgettable films and campaigns.</p>
+            </div>
+            <div>
+                <h4 class="mb-4 text-lg font-semibold text-primary">Studio</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#story" class="hover:text-primary">Story</a></li>
+                    <li><a href="#team" class="hover:text-primary">Team</a></li>
+                    <li><a href="index.html#clients" class="hover:text-primary">Clients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-4 text-lg font-semibold text-primary">Contact</h4>
+                <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
+                </p>
+                <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
+                        class="hover:text-primary">info@yarepicturestudios.com</a><br>+254&nbsp;700&nbsp;000000</p>
+            </div>
+            <div>
+                <iframe class="h-40 w-full rounded-lg ring-1 ring-primary/30" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.1423635218688!2d36.806499615923364!3d-1.299463135893403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15daf15fee55%3A0x7b5f1cb357f1dab0!2sThe%20Mall%2C%20Westlands!5e0!3m2!1sen!2ske!4v1685643300000!5m2!1sen!2ske"></iframe>
+            </div>
+        </div>
+        <div class="mt-12 bg-primary py-4 text-center text-xs font-medium uppercase tracking-widest text-third">©
+            2025&nbsp;Yare Picture Studios — All&nbsp;Rights&nbsp;Reserved</div>
+    </footer>
+</body>
+<script>
+    // mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const close = document.getElementById('nav-close');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => menu.classList.remove('hidden'));
+    close.addEventListener('click', () => menu.classList.add('hidden'));
+    // close when clicking a link
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+</script>
+
+</html>
