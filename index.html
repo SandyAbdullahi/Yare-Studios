@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yare Picture Studios – Hero</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            yare: {
+              950: '#042425',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter Tight', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    video::-webkit-media-controls { display: none !important; }
+  </style>
+</head>
+<body class="bg-black font-sans text-white antialiased">
+  <!-- Navbar -->
+  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
+    <a href="#" class="text-xl font-extrabold tracking-widest">YARE</a>
+    <button aria-label="Toggle menu" class="group flex flex-col space-y-1.5">
+      <span class="h-0.5 w-6 bg-white transition group-hover:bg-teal-300"></span>
+      <span class="h-0.5 w-6 bg-white transition group-hover:bg-teal-300"></span>
+      <span class="h-0.5 w-6 bg-white transition group-hover:bg-teal-300"></span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative h-screen w-full overflow-hidden">
+    <!-- Background video -->
+    <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
+      <source src="assets/hero.webm" type="video/mp4" />
+      <img src="assets/hero-fallback.jpg" alt="Film set close-up" />
+    </video>
+    <!-- Overlay tint -->
+    <div class="absolute inset-0 bg-yare-950/70 mix-blend-multiply"></div>
+
+    <!-- Copy -->
+    <div class="relative z-10 flex h-full items-center justify-end">
+      <div class="w-1/2 pr-6 sm:pr-10 lg:pr-20 xl:pr-28 text-right flex flex-col items-end">
+        <h1 class="mb-6 whitespace-pre-line font-extrabold leading-none tracking-tight 
+                   text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[9rem]">
+CAPTURE THE MOMENT</h1>
+        <a href="#reel" class="mb-10 inline-block text-xl font-semibold uppercase tracking-wider hover:underline">Watch Reel</a>
+        <a href="#contact" class="inline-block border-2 border-white px-10 py-3 text-lg font-medium transition hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white/60">Get Started</a>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
