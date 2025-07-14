@@ -44,24 +44,28 @@
     </button>
   </header>
 
-  <!-- Hero -->
+<!-- HERO SECTION with decorative lines -->
   <section class="relative h-screen w-full overflow-hidden">
     <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline>
       <source src="assets/hero.webm" type="video/mp4" />
-      <img src="assets/hero-fallback.jpg" alt="Film set close-up" />
+      <img src="assets/hero-fallback.jpg" alt="Film set" />
     </video>
     <div class="absolute inset-0 bg-yare-950/70 mix-blend-multiply"></div>
 
+    <!-- Vertical line -->
+    <div class="absolute left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 h-[70%] w-px bg-secondary/60"></div>
+    <!-- Horizontal line -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 h-px w-[80%] bg-secondary/60"></div>
+
     <div class="relative z-10 flex h-full items-center justify-end">
       <div class="w-1/2 pr-6 sm:pr-10 lg:pr-20 xl:pr-28 text-right flex flex-col items-end">
-        <h1 class="mb-6 whitespace-pre-line font-extrabold leading-none tracking-tight text-secondary 
-                   text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8rem]">
-CAPTURE THE MOMENT</h1>
+        <h1 class="mb-6 whitespace-pre-line font-extrabold leading-none tracking-tight text-secondary text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[8rem]">CAPTURE THE MOMENT</h1>
         <a href="#about" class="mb-8 inline-block text-xl font-semibold uppercase tracking-wider text-primary hover:underline">Watch Reel</a>
         <a href="#contact" class="inline-block border-2 border-primary px-10 py-3 text-lg font-medium text-secondary transition hover:bg-primary hover:text-third focus:outline-none focus:ring-2 focus:ring-primary/60">Get Started</a>
       </div>
     </div>
   </section>
+
   <!-- ======= WHO WE ARE ======= -->
   <section id="about" class="relative py-24 sm:py-32 overflow-hidden">
     <img src="assets/about-bg.jpg" alt="Studio background" class="absolute inset-0 h-full w-full object-cover opacity-20" />
