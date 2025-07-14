@@ -30,10 +30,16 @@
             display: none !important;
         }
 
+        /* ---- MODAL LAYOUT ---- */
         .modal {
+            /* full-screen wrapper */
             position: fixed;
             inset: 0;
             z-index: 9998;
+            display: flex;
+            /* NEW: center with flexbox */
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-overlay {
@@ -44,14 +50,14 @@
         }
 
         .modal-box {
+            /* the white/black card */
             position: relative;
-            margin: var(--tw-space-y-reverse) auto;
-            top: 10%;
             max-width: 24rem;
+            /* 384 px – adjust if needed */
             background: #000;
-            padding: 2rem 2.5rem;
+            padding: 2rem 2.5rem 2.5rem;
             border-radius: 0.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
         }
 
         .modal-title {
@@ -98,37 +104,42 @@
 
 <body class="bg-third text-secondary antialiased">
 
-    <!-- =========  NAV  ========= -->
-    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
+   <!-- NAVBAR -->
+    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
         <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
 
-        <!-- desktop links -->
+        <!-- Desktop nav -->
         <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
             <a href="index.html" class="hover:text-primary">Home</a>
             <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
-            <a href="services.html" class="text-primary">Services</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
             <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
             <a href="contact.html" class="hover:text-primary">Contact</a>
         </nav>
 
-        <!-- hamburger -->
-        <button id="nav-toggle" class="sm:hidden">
-            <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        <!-- Hamburger -->
+        <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
+            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+            <span class="block h-0.5 w-6 bg-secondary"></span>
         </button>
     </header>
 
-    <!-- mobile overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center gap-8
-              bg-third/80 backdrop-blur-md backdrop-saturate-150">
-        <button id="nav-close" class="absolute top-6 right-6 text-3xl text-secondary">&times;</button>
-        <a href="index.html" class="text-xl uppercase tracking-widest hover:text-primary">Home</a>
-        <a href="about.html" class="text-xl uppercase tracking-widest hover:text-primary">About&nbsp;Us</a>
-        <a href="services.html" class="text-xl uppercase tracking-widest text-primary">Services</a>
-        <a href="work.html" class="text-xl uppercase tracking-widest hover:text-primary">Our&nbsp;Work</a>
-        <a href="contact.html" class="text-xl uppercase tracking-widest hover:text-primary">Contact</a>
-    </div>
-
+    <!-- Mobile menu overlay -->
+    <nav id="mobile-menu"
+        class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
+        <!-- Close button -->
+        <button id="nav-close" aria-label="Close menu"
+            class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
+        <div
+            class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
+            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+            <a href="contact.html" class="hover:text-primary">Contact</a>
+        </div>
+    </nav>
     <!-- =========  HERO  ========= -->
     <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
         <img src="assets/images/services/banner.png" alt="Camera crane on set"
@@ -200,18 +211,26 @@
 
         <!-- ========== MODALS ========== -->
         <!-- Each modal is hidden until its card is clicked -->
-        <div id="modal-service-documentary" class="modal hidden">
-            <div class="modal-overlay"></div>
-            <div class="modal-box">
-                <button class="modal-close">&times;</button>
-                <h3 class="modal-title">Documentary Filmmaking</h3>
-                <p class="modal-body">
-                    We craft vérité or hybrid documentaries rooted in deep research, striking visuals,
-                    and intimate access—guiding your story from pitch deck to festival premiere.
-                </p>
-                <a href="contact.html" class="modal-btn">Start a Documentary</a>
-            </div>
-        </div>
+<div id="modal-service-documentary" class="modal hidden">
+  <div class="modal-overlay"></div>
+
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
+
+    <!-- NEW: top banner image -->
+    <img src="assets/images/services/documentary.jpg"
+         alt="Documentary"
+         class="mb-4 h-40 w-full rounded object-cover" />
+
+    <h3 class="modal-title">Documentary Filmmaking</h3>
+    <p class="modal-body">
+      We craft vérité or hybrid documentaries rooted in deep research, striking visuals,
+      and intimate access—guiding your story from pitch deck to festival premiere.
+    </p>
+    <a href="contact.html" class="modal-btn">Start a Documentary</a>
+  </div>
+</div>
+
 
         <div id="modal-service-narrative" class="modal hidden">
             <div class="modal-overlay"></div>
