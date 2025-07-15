@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work | Yare Picture Studios</title>
+
+  <!-- Tailwind (play CDN for rapid iteration) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#c3403e',
+            secondary: '#f2f0ef',
+            third: '#000000',
+            fourth: '#4d4d4d',
+          },
+          fontFamily: {
+            sans: ['"Inter Tight"', 'sans-serif']
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    /* video::-webkit-media-controls{display:none!important;} */
+    .bg-video::-webkit-media-controls {
+      display: none !important;
+    }
+
+    /* <!-- ======= MODAL BASIC STYLES (reuse from services) ======= --> */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      backdrop-filter: blur(3px);
+    }
+
+    .modal-box {
+      position: relative;
+      max-width: 42rem;
+      max-height: 80vh;
+      overflow-y: auto;
+      background: #000;
+      padding: 2.5rem 3rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #f2f0ef;
+    }
+
+    .modal-body {
+      font-size: .95rem;
+      color: #f2f0efcc;
+      line-height: 1.5;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      padding: .75rem 2rem;
+      border: 2px solid #c3403e;
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: #c3403e;
+      transition: .2s;
+    }
+
+    .modal-btn:hover {
+      background: #c3403e;
+      color: #000;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: .75rem;
+      right: 1rem;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: #f2f0ef;
+      cursor: pointer;
+    }
+
+    /* === THEMED SCROLLBAR ===============================================
+   Works in Chrome / Edge / Safari (WebKit & Blink) + a subtle fallback
+   for Firefox. ------------------------------------------------------- */
+
+    @layer utilities {
+
+      /* WebKit & Blink */
+      ::-webkit-scrollbar {
+        width: 8px;
+        /* vertical */
+        height: 8px;
+        /* horizontal */
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #000;
+        /* third color */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #c3403e;
+        /* primary red */
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d15452;
+        /* slightly lighter on hover */
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: thin;
+        /* 8 px-ish */
+        scrollbar-color: #c3403e #000;
+        /* thumb | track */
+      }
+    }
+
+    /* Optional: only apply to the body + modal content
+   Uncomment if you DON’T want every tiny div styled.
+
+body, .modal-box {
+  overflow-y: auto;            <-- keep scrollbar
+}
+*/
+  </style>
+</head>
+
+<body class="bg-third text-secondary antialiased">
+
+  <!-- ======= NAVBAR (same shared nav) ======= -->
+  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
+    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+
+    <!-- desktop links -->
+    <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+      <a href="index.html" class="hover:text-primary">Home</a>
+      <a href="about.html" class="hover:text-primary">About</a>
+      <a href="services.html" class="hover:text-primary">Services</a>
+      <a href="work.html" class="text-primary">Our&nbsp;Work</a>
+      <a href="contact.html" class="hover:text-primary">Contact</a>
+    </nav>
+
+    <!-- hamburger -->
+    <button id="nav-toggle" class="sm:hidden">
+      <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+    </button>
+  </header>
+
+  <!-- mobile overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center gap-8
+              bg-third/80 backdrop-blur-md backdrop-saturate-150">
+    <button id="nav-close" class="absolute top-6 right-6 text-3xl text-secondary">&times;</button>
+    <a href="index.html" class="text-xl uppercase tracking-widest hover:text-primary">Home</a>
+    <a href="about.html" class="text-xl uppercase tracking-widest hover:text-primary">About</a>
+    <a href="services.html" class="text-xl uppercase tracking-widest hover:text-primary">Services</a>
+    <a href="work.html" class="text-xl uppercase tracking-widest text-primary">Our&nbsp;Work</a>
+    <a href="contact.html" class="text-xl uppercase tracking-widest hover:text-primary">Contact</a>
+  </div>
+
+  <!-- ======= HERO ======= -->
+  <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
+    <video autoplay muted loop playsinline class="absolute inset-0 h-full w-full object-cover">
+      <source src="assets/hero-3.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
+    <h1 class="relative z-10 px-6 text-center font-extrabold tracking-tight
+               text-4xl sm:text-5xl md:text-7xl">
+      Reel&nbsp;&amp;&nbsp;Portfolio
+    </h1>
+  </section>
+
+  <!-- ======= FILTER BAR ======= -->
+  <section class="bg-third py-10">
+    <div class="mx-auto max-w-6xl px-6 md:px-12 flex flex-wrap gap-4 justify-center">
+      <button class="filter-btn px-6 py-2 text-sm uppercase tracking-wide border border-primary
+                     hover:bg-primary hover:text-third active" data-filter="*">All</button>
+      <button class="filter-btn px-6 py-2 text-sm uppercase tracking-wide border border-primary
+                     hover:bg-primary hover:text-third" data-filter="documentary">Documentary</button>
+      <button class="filter-btn px-6 py-2 text-sm uppercase tracking-wide border border-primary
+                     hover:bg-primary hover:text-third" data-filter="narrative">Narrative</button>
+      <button class="filter-btn px-6 py-2 text-sm uppercase tracking-wide border border-primary
+                     hover:bg-primary hover:text-third" data-filter="commercial">Commercial</button>
+      <button class="filter-btn px-6 py-2 text-sm uppercase tracking-wide border border-primary
+                     hover:bg-primary hover:text-third" data-filter="production">Production</button>
+    </div>
+  </section>
+
+  <!-- ======= PORTFOLIO GRID ======= -->
+  <section class="bg-third pb-24">
+    <div id="workGrid" class="mx-auto max-w-6xl grid gap-8 px-6 md:px-12 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- CARD EXAMPLE -->
+      <button type="button"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none documentary"
+        data-work="film1">
+        <img src="assets/images/works/igiza/igiza_poster.jpg" alt="Igiza"
+          class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-end
+                    p-4 text-center">
+          <h3 class="text-lg font-semibold text-secondary">Igiza</h3>
+          <p class="text-xs uppercase tracking-wide text-primary">Narrative • 2024</p>
+        </div>
+      </button>
+
+      <!-- Duplicate ↓ with appropriate classes + data-work keys -->
+      <button type="button"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none commercial"
+        data-work="film2">
+        <img src="assets/images/works/black_and_blue/poster.png" alt="Black & Blue"
+          class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
+          <h3 class="text-lg font-semibold text-secondary">Black and Blue</h3>
+          <p class="text-xs uppercase tracking-wide text-primary">Commercial • 2023</p>
+        </div>
+      </button>
+
+      <!-- …Add more cards for Narrative / Documentary / Production -->
+    </div>
+  </section>
+  <!-- ======= WORK MODALS (add one per project) ======= -->
+
+  <div id="modal-film1" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title mb-4 text-primary">Igiza — Trailer</h3>
+      <video controls loop playsinline class="mb-6 w-full rounded-lg">
+        <source src="assets/hero-3.mp4" type="video/mp4">
+      </video>
+      <div class="mx-auto mb-6 h-0.5 w-24 bg-primary"></div>
+
+      <img src="assets/images/works/igiza/Picture17.png" alt="Igiza key art"
+        class="mb-4 w-full h-48 object-cover rounded-lg" />
+      <p class="modal-body text-left">
+        “Igiza” is a tale of twin sisters seeking revenge in Nairobi’s cutthroat fashion industry and money laundering
+        world. Serah Ndanu stars as Linda, a successful fashion designer, and Nicole, an imprisoned former criminal. As
+        Nicole sets her plan in motion, both sisters’ lives change. Adapted for Showmax the 13 episodes are now
+        streaming exclusively on the platform. A must-watch for fans of high-stakes drama and intense character
+        development.
+      </p>
+      <div class="mt-8 text-center">
+        <a href="contact.html" class="modal-btn">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-film2" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title mb-4">Black &amp; Blue&nbsp;— Trailer</h3>
+      <video controls playsinline class="mb-6 w-full rounded-lg">
+        <source src="assets/work/film1_trailer.mp4" type="video/mp4">
+      </video>
+      <p class="modal-body text-left">
+        A gritty crime drama set in modern Nairobi exploring loyalty, justice, and redemption.
+        Official Selection: Durban Int’l Film Festival 2024.
+      </p>
+      <div class="mt-8 text-center">
+        <a href="contact.html" class="modal-btn">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+  <!-- ======= CTA ======= -->
+  <section class="bg-primary py-20 text-center text-secondary">
+    <h2 class="mx-auto mb-6 max-w-3xl px-6 text-3xl sm:text-4xl font-extrabold tracking-tight">
+      Like what you see?
+    </h2>
+    <a href="contact.html" class="inline-block border-2 border-third bg-third px-10 py-4 text-lg font-medium uppercase tracking-wider
+              text-primary transition hover:bg-transparent hover:text-third">
+      Start Your Project
+    </a>
+  </section>
+
+  <!-- ======= FOOTER (shared) ======= -->
+  <footer class="bg-fourth py-16 text-secondary">
+    <div class="mx-auto max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
+      <div>
+        <h3 class="mb-4 text-lg font-bold text-primary">YARE</h3>
+        <p class="text-sm leading-relaxed text-secondary/80">
+          Crafting award-winning film &amp; television across Africa and beyond.
+        </p>
+      </div>
+      <nav class="space-y-2 text-sm">
+        <h4 class="mb-3 font-semibold text-secondary">Navigate</h4>
+        <a href="index.html" class="block hover:text-primary">Home</a>
+        <a href="about.html" class="block hover:text-primary">About</a>
+        <a href="services.html" class="block hover:text-primary">Services</a>
+        <a href="work.html" class="block text-primary">Our Work</a>
+        <a href="contact.html" class="block hover:text-primary">Contact</a>
+      </nav>
+      <nav class="space-y-2 text-sm">
+        <h4 class="mb-3 font-semibold text-secondary">Services</h4>
+        <a href="services.html#documentary" class="block hover:text-primary">Documentary</a>
+        <a href="services.html#narrative" class="block hover:text-primary">Narrative</a>
+        <a href="services.html#commercial" class="block hover:text-primary">Commercial</a>
+        <a href="services.html#production" class="block hover:text-primary">Production</a>
+      </nav>
+      <div class="text-sm">
+        <h4 class="mb-3 font-semibold text-secondary">Contact</h4>
+        <p>The Mall, Westlands<br>Nairobi, Kenya</p>
+        <p class="mt-2">+254&nbsp;712&nbsp;345&nbsp;678</p>
+        <p>hello@yarestudios.com</p>
+      </div>
+    </div>
+    <div class="bg-primary py-4 text-center text-third text-xs tracking-wide">
+      &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
+    </div>
+  </footer>
+
+
+
+  <!-- ======= SCRIPTS ======= -->
+  <script>
+    /* ----- mobile menu ----- */
+    const toggle = document.getElementById('nav-toggle');
+    const close = document.getElementById('nav-close');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    close.addEventListener('click', () => menu.classList.add('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+
+    /* ----- year ----- */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ----- portfolio filters (simple) ----- */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.work-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(c => {
+          if (filter === '*' || c.classList.contains(filter)) {
+            c.classList.remove('hidden');
+          } else {
+            c.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    /* ----- modals ----- */
+    const workCards = document.querySelectorAll('.work-card');
+    const modals = document.querySelectorAll('.modal');
+
+    /* open modal */
+    workCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.dataset.work;
+        document.getElementById(`modal-${key}`).classList.remove('hidden');
+        document.body.classList.add('overflow-hidden'); /* NEW */
+      });
+    });
+
+    /* close modal */
+    modals.forEach(m => {
+      m.addEventListener('click', e => {
+        if (e.target.classList.contains('modal-overlay') ||
+          e.target.classList.contains('modal-close')) {
+          m.classList.add('hidden');
+          document.body.classList.remove('overflow-hidden'); /* NEW */
+        }
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>
