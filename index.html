@@ -31,6 +31,9 @@
     </script>
 
     <style>
+        /* hide scrollbar while loader is up (optional) */
+body.loading { overflow: hidden; }
+
         /* Hide native controls on iOS for the background video */
         video::-webkit-media-controls {
             display: none !important;
@@ -39,6 +42,23 @@
 </head>
 
 <body class="bg-third font-sans text-secondary antialiased scroll-smooth">
+    <!-- ===== PAGE LOADER ===== -->
+<div id="page-loader"
+     class="fixed inset-0 z-[9999] flex items-center justify-center bg-third transition-opacity duration-500">
+  <!-- Logo or text (optional) -->
+  <span class="absolute top-8 text-2xl font-extrabold tracking-widest text-primary">
+    YARE
+  </span>
+
+  <!-- Red Tailwind spinner -->
+  <svg class="h-12 w-12 animate-spin text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+    <path d="M22 12a10 10 0 1 1-10-10" stroke-linecap="round" stroke-opacity="0.9" />
+  </svg>
+</div>
+
+    
+    
     <!-- NAVBAR -->
     <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
         <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
@@ -326,6 +346,19 @@
             &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
         </div>
     </footer>
+    <script>
+  /* Add loading class early (for browsers that execute scripts late) */
+  document.body.classList.add('loading');
+
+  /* Remove loader when everything’s ready */
+  window.addEventListener('load', ()=>{
+    const loader = document.getElementById('page-loader');
+    loader.classList.add('opacity-0');            /* fade out */
+    setTimeout(()=> loader.remove(), 500);        /* remove from DOM */
+    document.body.classList.remove('loading');
+  });
+</script>
+
 
 </body>
 <script>
