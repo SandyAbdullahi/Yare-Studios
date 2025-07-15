@@ -28,6 +28,32 @@
         }
     </script>
     <style>
+        /* white screen that fades in 0.2 s */
+        #page-flash {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: #ffffff;
+            /* white flash */
+            animation: flash-fade 0.2s ease-out forwards;
+            pointer-events: none;
+            /* never blocks clicks */
+        }
+
+        @keyframes flash-fade {
+            from {
+                opacity: 1;
+            }
+
+            /* fully white */
+            to {
+                opacity: 0;
+            }
+
+            /* transparent */
+        }
+
+
         video::-webkit-media-controls {
             display: none !important;
         }
@@ -109,6 +135,9 @@
 </head>
 
 <body class="bg-third text-secondary antialiased">
+    <!-- QUICK WHITE FLASH -->
+    <div id="page-flash"
+        class="fixed inset-0 z-[9998] bg-white opacity-100 pointer-events-none transition-opacity duration-300"></div>
 
     <!-- NAVBAR -->
     <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
@@ -397,6 +426,19 @@
     </footer>
     <!-- =========  JS  ========= -->
     <script>
+        window.addEventListener('load', () => {
+            const flash = document.getElementById('page-flash');
+            flash.classList.add('opacity-0'); // start fade-out
+            setTimeout(() => flash.remove(), 300); // clean up after animation
+        });
+
+        /* remove the node after the animation has finished */
+        window.addEventListener('load', () => setTimeout(() => {
+            const f = document.getElementById('page-flash');
+            f && f.remove();
+        }, 200));
+
+
         // Mobile menu toggle
         const toggle = document.getElementById('nav-toggle');
         const close = document.getElementById('nav-close');

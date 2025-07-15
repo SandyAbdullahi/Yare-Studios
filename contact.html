@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-      <meta name="theme-color" content="#c3403e" />
+  <meta name="theme-color" content="#c3403e" />
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,68 +15,119 @@
       theme: {
         extend: {
           colors: {
-            primary:  '#c3403e',
-            secondary:'#f2f0ef',
-            third:    '#000000',
-            fourth:   '#4d4d4d',
+            primary: '#c3403e',
+            secondary: '#f2f0ef',
+            third: '#000000',
+            fourth: '#4d4d4d',
           },
-          fontFamily:{ sans:['"Inter Tight"', 'sans-serif'] },
+          fontFamily: {
+            sans: ['"Inter Tight"', 'sans-serif']
+          },
         }
       }
     }
   </script>
   <style>
-    .bg-video::-webkit-media-controls{display:none!important;}       /* keep hero loops clean */
+    /* white screen that fades in 0.2 s */
+    #page-flash {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      background: #ffffff;
+      /* white flash */
+      animation: flash-fade 0.2s ease-out forwards;
+      pointer-events: none;
+      /* never blocks clicks */
+    }
+
+    @keyframes flash-fade {
+      from {
+        opacity: 1;
+      }
+
+      /* fully white */
+      to {
+        opacity: 0;
+      }
+
+      /* transparent */
+    }
+
+    .bg-video::-webkit-media-controls {
+      display: none !important;
+    }
+
+    /* keep hero loops clean */
     /* scrollbar theming (copied from utilities layer) */
-    ::-webkit-scrollbar{width:8px;height:8px}
-    ::-webkit-scrollbar-track{background:#000}
-    ::-webkit-scrollbar-thumb{background:#c3403e;border-radius:4px}
-    ::-webkit-scrollbar-thumb:hover{background:#d15452}
-    *{scrollbar-width:thin;scrollbar-color:#c3403e #000}
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #000
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c3403e;
+      border-radius: 4px
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d15452
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #c3403e #000
+    }
   </style>
 </head>
+
 <body class="bg-third text-secondary antialiased">
+  <!-- QUICK WHITE FLASH -->
+  <div id="page-flash"
+    class="fixed inset-0 z-[9998] bg-white opacity-100 pointer-events-none transition-opacity duration-300"></div>
 
- <!-- NAVBAR -->
-    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
-        <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+  <!-- NAVBAR -->
+  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
+    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
 
-        <!-- Desktop nav -->
-        <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
-            <a href="index.html" class="hover:text-primary">Home</a>
-            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
-            <a href="services.html" class="hover:text-primary">Services</a>
-            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
-            <a href="contact.html" class="hover:text-primary">Contact</a>
-        </nav>
-
-        <!-- Hamburger -->
-        <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
-            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
-            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
-            <span class="block h-0.5 w-6 bg-secondary"></span>
-        </button>
-    </header>
-
-    <!-- Mobile menu overlay -->
-    <nav id="mobile-menu"
-        class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
-        <!-- Close button -->
-        <button id="nav-close" aria-label="Close menu"
-            class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
-        <div
-            class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
-            <a href="index.html" class="hover:text-primary">Home</a>
-            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
-            <a href="services.html" class="hover:text-primary">Services</a>
-            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
-            <a href="contact.html" class="hover:text-primary">Contact</a>
-        </div>
+    <!-- Desktop nav -->
+    <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+      <a href="index.html" class="hover:text-primary">Home</a>
+      <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+      <a href="services.html" class="hover:text-primary">Services</a>
+      <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+      <a href="contact.html" class="hover:text-primary">Contact</a>
     </nav>
+
+    <!-- Hamburger -->
+    <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
+      <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+      <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+      <span class="block h-0.5 w-6 bg-secondary"></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <nav id="mobile-menu"
+    class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
+    <!-- Close button -->
+    <button id="nav-close" aria-label="Close menu"
+      class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
+    <div
+      class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
+      <a href="index.html" class="hover:text-primary">Home</a>
+      <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+      <a href="services.html" class="hover:text-primary">Services</a>
+      <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+      <a href="contact.html" class="hover:text-primary">Contact</a>
+    </div>
+  </nav>
   <!-- ===== HERO ===== -->
   <section class="relative flex h-[60vh] items-center justify-center overflow-hidden">
-    <video autoplay muted loop playsinline
-           class="absolute inset-0 h-full w-full object-cover bg-video">
+    <video autoplay muted loop playsinline class="absolute inset-0 h-full w-full object-cover bg-video">
       <source src="assets/hero-2.webm" type="video/mp4">
     </video>
     <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
@@ -85,149 +137,157 @@
     </h1>
   </section>
   <!-- ===== ENGAGING BLURB + HERO IMAGE ===== -->
-<div class="mx-auto mt-20 mb-12 max-w-3xl px-6 text-center">
-  <p class="text-lg sm:text-xl leading-relaxed text-secondary">
-    <span class="font-semibold text-primary">Ready for a story that owns the screen?</span><br>
-    Tell us what you’re dreaming up—feature film, brand spot, or docu-series—and we’ll turn it
-    into frames that captivate audiences and move the needle. Drop your details below and the
-    Yare Picture Studios team will be in your inbox faster than the clap of a slate.
-  </p>
-</div>
+  <div class="mx-auto mt-20 mb-12 max-w-3xl px-6 text-center">
+    <p class="text-lg sm:text-xl leading-relaxed text-secondary">
+      <span class="font-semibold text-primary">Ready for a story that owns the screen?</span><br>
+      Tell us what you’re dreaming up—feature film, brand spot, or docu-series—and we’ll turn it
+      into frames that captivate audiences and move the needle. Drop your details below and the
+      Yare Picture Studios team will be in your inbox faster than the clap of a slate.
+    </p>
+  </div>
 
-<!-- Attention-grabbing banner image (replace src with your own) -->
-<img src="assets/images/banner.jpg"
-     alt="Behind-the-scenes camera setup"
-     class="mx-auto mb-12 w-full max-w-4xl rounded-lg object-cover shadow-lg ring-1 ring-secondary/20" />
+  <!-- Attention-grabbing banner image (replace src with your own) -->
+  <img src="assets/images/banner.jpg" alt="Behind-the-scenes camera setup"
+    class="mx-auto mb-12 w-full max-w-4xl rounded-lg object-cover shadow-lg ring-1 ring-secondary/20" />
 
 
-<!-- ===== CONTACT CONTENT (FORM-ONLY, CENTERED) ===== -->
-<section class="py-24 sm:py-32 bg-third">
-  <div class="mx-auto max-w-xl px-6 md:px-0">   <!-- narrower, centered wrapper -->
+  <!-- ===== CONTACT CONTENT (FORM-ONLY, CENTERED) ===== -->
+  <section class="py-24 sm:py-32 bg-third">
+    <div class="mx-auto max-w-xl px-6 md:px-0">
+      <!-- narrower, centered wrapper -->
 
-    <!-- Engaging blurb + image (optional) -->
-    <div class="mb-12 text-center">
-      <p class="text-lg sm:text-xl leading-relaxed text-secondary">
-        <span class="font-semibold text-primary">Let us know how we can make you story come to life</span><br>
-     
-      </p>
-    </div>
+      <!-- Engaging blurb + image (optional) -->
+      <div class="mb-12 text-center">
+        <p class="text-lg sm:text-xl leading-relaxed text-secondary">
+          <span class="font-semibold text-primary">Let us know how we can make you story come to life</span><br>
 
-    <!--  If you want an image, uncomment:
+        </p>
+      </div>
+
+      <!--  If you want an image, uncomment:
     <img src="assets/images/contact/marketing_banner.jpg"
          alt="Behind-the-scenes camera setup"
          class="mx-auto mb-12 w-full rounded-lg object-cover shadow-lg ring-1 ring-secondary/20" />
     -->
 
-    <!-- ========== CONTACT FORM ========== -->
-    <form action="https://formspree.io/f/example" method="POST" class="space-y-6" id="Contactform">
+      <!-- ========== CONTACT FORM ========== -->
+      <form action="https://formspree.io/f/example" method="POST" class="space-y-6" id="Contactform">
 
-      <!-- Name & Email -->
-      <div class="grid gap-6 sm:grid-cols-2">
-        <input type="text" name="name" required placeholder="Name"
-               class="w-full rounded-lg bg-fourth/30 p-3 text-sm
+        <!-- Name & Email -->
+        <div class="grid gap-6 sm:grid-cols-2">
+          <input type="text" name="name" required placeholder="Name" class="w-full rounded-lg bg-fourth/30 p-3 text-sm
                       text-secondary placeholder-secondary/70
                       focus:bg-fourth/50 focus:outline-none" />
 
-        <input type="email" name="email" required placeholder="Email"
-               class="w-full rounded-lg bg-fourth/30 p-3 text-sm
+          <input type="email" name="email" required placeholder="Email" class="w-full rounded-lg bg-fourth/30 p-3 text-sm
                       text-secondary placeholder-secondary/70
                       focus:bg-fourth/50 focus:outline-none" />
-      </div>
+        </div>
 
-      <!-- Subject -->
-      <input type="text" name="subject" placeholder="Subject"
-             class="w-full rounded-lg bg-fourth/30 p-3 text-sm
+        <!-- Subject -->
+        <input type="text" name="subject" placeholder="Subject" class="w-full rounded-lg bg-fourth/30 p-3 text-sm
                     text-secondary placeholder-secondary/70
                     focus:bg-fourth/50 focus:outline-none" />
 
-      <!-- Message -->
-      <textarea name="message" rows="5" required placeholder="Message"
-                class="w-full rounded-lg bg-fourth/30 p-3 text-sm
+        <!-- Message -->
+        <textarea name="message" rows="5" required placeholder="Message" class="w-full rounded-lg bg-fourth/30 p-3 text-sm
                        text-secondary placeholder-secondary/70
                        focus:bg-fourth/50 focus:outline-none"></textarea>
 
-      <!-- Send button -->
-      <button id="sendBtn" type="submit"
-              class="mx-auto inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary
+        <!-- Send button -->
+        <button id="sendBtn" type="submit" class="mx-auto inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary
                      bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-wide
                      text-third transition hover:bg-transparent hover:text-primary
                      focus:outline-none focus:ring-2 focus:ring-primary/60">
-        <span>Send&nbsp;Message</span>
-        <svg id="spinner" class="hidden h-4 w-4 animate-spin" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
-          <path d="M22 12a10 10 0 0 1-10 10" stroke-linecap="round" stroke-opacity="0.75" />
-        </svg>
-      </button>
-    </form>
+          <span>Send&nbsp;Message</span>
+          <svg id="spinner" class="hidden h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+            <path d="M22 12a10 10 0 0 1-10 10" stroke-linecap="round" stroke-opacity="0.75" />
+          </svg>
+        </button>
+      </form>
 
-  </div>
-</section>
-
-
+    </div>
+  </section>
 
 
- <!-- ======= FOOTER (shared) ======= -->
-    <footer class="bg-fourth pt-20 pb-0 text-secondary">
-        <div class="mx-auto mb-16 max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
-            <div>
-                <h3 class="mb-4 text-lg font-bold text-primary">YARE</h3>
-                <p class="text-sm leading-relaxed text-secondary/80">
-                    Crafting award-winning film &amp; television across Africa and beyond.
-                </p>
-            </div>
-            <!-- Site links -->
-            <div>
-                <h4 class="mb-4 text-lg font-semibold text-primary">Studio</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="about.html" class="hover:text-primary">About Us</a></li>
-                    <li><a href="services.html" class="hover:text-primary">Services</a></li>
-                    <li><a href="work.html" class="hover:text-primary">Our Projects</a></li>
-                    <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
-                </ul>
-            </div>
 
 
-            <div>
-                <h4 class="mb-4 text-lg font-semibold text-primary">Contact</h4>
-                <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
-                </p>
-                <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
-                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320 355<br />https://vimeo.com/yarepicturestudio</p>
-            </div>
-            <div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.846853523944!2d36.80022057477728!3d-1.264398198723572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17401ef1b0db%3A0xcc0b439a0875f500!2sThe%20Mall%2C%20Westlands!5e0!3m2!1sen!2ske!4v1752569488344!5m2!1sen!2ske"
-                    width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+  <!-- ======= FOOTER (shared) ======= -->
+  <footer class="bg-fourth pt-20 pb-0 text-secondary">
+    <div class="mx-auto mb-16 max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
+      <div>
+        <h3 class="mb-4 text-lg font-bold text-primary">YARE</h3>
+        <p class="text-sm leading-relaxed text-secondary/80">
+          Crafting award-winning film &amp; television across Africa and beyond.
+        </p>
+      </div>
+      <!-- Site links -->
+      <div>
+        <h4 class="mb-4 text-lg font-semibold text-primary">Studio</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-primary">About Us</a></li>
+          <li><a href="services.html" class="hover:text-primary">Services</a></li>
+          <li><a href="work.html" class="hover:text-primary">Our Projects</a></li>
+          <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
+        </ul>
+      </div>
 
-        </div>
-        <div class="bg-primary py-4 text-center text-third text-xs tracking-wide">
-            &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
-        </div>
-    </footer>
+
+      <div>
+        <h4 class="mb-4 text-lg font-semibold text-primary">Contact</h4>
+        <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
+        </p>
+        <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
+            class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320
+          355<br />https://vimeo.com/yarepicturestudio</p>
+      </div>
+      <div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.846853523944!2d36.80022057477728!3d-1.264398198723572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f17401ef1b0db%3A0xcc0b439a0875f500!2sThe%20Mall%2C%20Westlands!5e0!3m2!1sen!2ske!4v1752569488344!5m2!1sen!2ske"
+          width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+    </div>
+    <div class="bg-primary py-4 text-center text-third text-xs tracking-wide">
+      &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
+    </div>
+  </footer>
 
   <!-- ===== JS ===== -->
   <script>
+    window.addEventListener('load', () => {
+      const flash = document.getElementById('page-flash');
+      flash.classList.add('opacity-0'); // start fade-out
+      setTimeout(() => flash.remove(), 300); // clean up after animation
+    });
+    /* remove the node after the animation has finished */
+    window.addEventListener('load', () => setTimeout(() => {
+      const f = document.getElementById('page-flash');
+      f && f.remove();
+    }, 200));
+
     /* mobile nav toggle */
-    const toggle=document.getElementById('nav-toggle');
-    const close=document.getElementById('nav-close');
-    const menu=document.getElementById('mobile-menu');
-    toggle.addEventListener('click',()=>menu.classList.toggle('hidden'));
-    close.addEventListener('click',()=>menu.classList.add('hidden'));
-    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.add('hidden')));
+    const toggle = document.getElementById('nav-toggle');
+    const close = document.getElementById('nav-close');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('hidden'));
+    close.addEventListener('click', () => menu.classList.add('hidden'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
 
     /* year */
-    document.getElementById('year').textContent=new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
     /* form spinner */
-    const btn=document.getElementById('sendBtn');
-    const spinner=document.getElementById('spinner');
-    btn.addEventListener('click',()=>{
+    const btn = document.getElementById('sendBtn');
+    const spinner = document.getElementById('spinner');
+    btn.addEventListener('click', () => {
       spinner.classList.remove('hidden');
-      btn.querySelector('span').textContent='Sending…';
+      btn.querySelector('span').textContent = 'Sending…';
     });
   </script>
 </body>
+
 </html>

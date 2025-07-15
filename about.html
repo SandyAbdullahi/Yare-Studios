@@ -28,9 +28,40 @@
             },
         };
     </script>
+    <style>
+        /* white screen that fades in 0.2 s */
+        #page-flash {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: #ffffff;
+            /* white flash */
+            animation: flash-fade 0.2s ease-out forwards;
+            pointer-events: none;
+            /* never blocks clicks */
+        }
+
+        @keyframes flash-fade {
+            from {
+                opacity: 1;
+            }
+
+            /* fully white */
+            to {
+                opacity: 0;
+            }
+
+            /* transparent */
+        }
+    </style>
+
 </head>
 
 <body class="bg-third font-sans text-secondary antialiased scroll-smooth">
+    <!-- QUICK WHITE FLASH -->
+    <div id="page-flash"
+        class="fixed inset-0 z-[9998] bg-white opacity-100 pointer-events-none transition-opacity duration-300"></div>
+
     <!-- NAVBAR -->
     <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
         <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
@@ -227,7 +258,7 @@
 
 
 
- <!-- ======= FOOTER (shared) ======= -->
+    <!-- ======= FOOTER (shared) ======= -->
     <footer class="bg-fourth pt-20 pb-0 text-secondary">
         <div class="mx-auto mb-16 max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
             <div>
@@ -253,7 +284,8 @@
                 <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
                 </p>
                 <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
-                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320 355<br />https://vimeo.com/yarepicturestudio</p>
+                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320
+                    355<br />https://vimeo.com/yarepicturestudio</p>
             </div>
             <div>
                 <iframe
@@ -267,8 +299,22 @@
             &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
         </div>
     </footer>
+    <script>
+        /* remove the node after the animation has finished */
+        window.addEventListener('load', () => setTimeout(() => {
+            const f = document.getElementById('page-flash');
+            f && f.remove();
+        }, 200));
+    </script>
+
 </body>
 <script>
+    window.addEventListener('load', () => {
+        const flash = document.getElementById('page-flash');
+        flash.classList.add('opacity-0'); // start fade-out
+        setTimeout(() => flash.remove(), 300); // clean up after animation
+    });
+
     // mobile nav toggle
     const toggle = document.getElementById('nav-toggle');
     const close = document.getElementById('nav-close');
@@ -277,9 +323,8 @@
     close.addEventListener('click', () => menu.classList.add('hidden'));
     // close when clicking a link
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
- // Year
-     document.getElementById('year').textContent = new Date().getFullYear();
-
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </html>

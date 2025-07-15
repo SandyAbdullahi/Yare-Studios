@@ -31,8 +31,36 @@
     </script>
 
     <style>
+        /* white screen that fades in 0.2 s */
+        #page-flash {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: #ffffff;
+            /* white flash */
+            animation: flash-fade 0.2s ease-out forwards;
+            pointer-events: none;
+            /* never blocks clicks */
+        }
+
+        @keyframes flash-fade {
+            from {
+                opacity: 1;
+            }
+
+            /* fully white */
+            to {
+                opacity: 0;
+            }
+
+            /* transparent */
+        }
+
+
         /* hide scrollbar while loader is up (optional) */
-body.loading { overflow: hidden; }
+        body.loading {
+            overflow: hidden;
+        }
 
         /* Hide native controls on iOS for the background video */
         video::-webkit-media-controls {
@@ -42,23 +70,28 @@ body.loading { overflow: hidden; }
 </head>
 
 <body class="bg-third font-sans text-secondary antialiased scroll-smooth">
+    <!-- QUICK WHITE FLASH -->
+    <div id="page-flash"
+        class="fixed inset-0 z-[9998] bg-white opacity-100 pointer-events-none transition-opacity duration-300"></div>
+
     <!-- ===== PAGE LOADER ===== -->
-<div id="page-loader"
-     class="fixed inset-0 z-[9999] flex items-center justify-center bg-third transition-opacity duration-500">
-  <!-- Logo or text (optional) -->
-  <span class="absolute top-8 text-2xl font-extrabold tracking-widest text-primary">
-    YARE
-  </span>
+    <div id="page-loader"
+        class="fixed inset-0 z-[9999] flex items-center justify-center bg-third transition-opacity duration-500">
+        <!-- Logo or text (optional) -->
+        <span class="absolute top-8 text-2xl font-extrabold tracking-widest text-primary">
+            YARE
+        </span>
 
-  <!-- Red Tailwind spinner -->
-  <svg class="h-12 w-12 animate-spin text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
-    <path d="M22 12a10 10 0 1 1-10-10" stroke-linecap="round" stroke-opacity="0.9" />
-  </svg>
-</div>
+        <!-- Red Tailwind spinner -->
+        <svg class="h-12 w-12 animate-spin text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+            <path d="M22 12a10 10 0 1 1-10-10" stroke-linecap="round" stroke-opacity="0.9" />
+        </svg>
+    </div>
 
-    
-    
+
+
     <!-- NAVBAR -->
     <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
         <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
@@ -332,7 +365,8 @@ body.loading { overflow: hidden; }
                 <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
                 </p>
                 <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
-                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320 355<br />https://vimeo.com/yarepicturestudio</p>
+                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320
+                    355<br />https://vimeo.com/yarepicturestudio</p>
             </div>
             <div>
                 <iframe
@@ -347,21 +381,32 @@ body.loading { overflow: hidden; }
         </div>
     </footer>
     <script>
-  /* Add loading class early (for browsers that execute scripts late) */
-  document.body.classList.add('loading');
+        /* Add loading class early (for browsers that execute scripts late) */
+        document.body.classList.add('loading');
 
-  /* Remove loader when everything’s ready */
-  window.addEventListener('load', ()=>{
-    const loader = document.getElementById('page-loader');
-    loader.classList.add('opacity-0');            /* fade out */
-    setTimeout(()=> loader.remove(), 500);        /* remove from DOM */
-    document.body.classList.remove('loading');
-  });
-</script>
+        /* Remove loader when everything’s ready */
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('page-loader');
+            loader.classList.add('opacity-0'); /* fade out */
+            setTimeout(() => loader.remove(), 500); /* remove from DOM */
+            document.body.classList.remove('loading');
+        });
+        /* remove the node after the animation has finished */
+        window.addEventListener('load', () => setTimeout(() => {
+            const f = document.getElementById('page-flash');
+            f && f.remove();
+        }, 200));
+    </script>
+
 
 
 </body>
 <script>
+    window.addEventListener('load', () => {
+        const flash = document.getElementById('page-flash');
+        flash.classList.add('opacity-0'); // start fade-out
+        setTimeout(() => flash.remove(), 300); // clean up after animation
+    });
     // mobile nav toggle
     const toggle = document.getElementById('nav-toggle');
     const close = document.getElementById('nav-close');
@@ -388,8 +433,7 @@ body.loading { overflow: hidden; }
         slides[current].classList.replace('opacity-0', 'opacity-100');
     }, 4000); // 4‑second interval
     // Year
-     document.getElementById('year').textContent = new Date().getFullYear();
-
+    document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </html>
