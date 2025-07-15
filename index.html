@@ -387,6 +387,9 @@ body.loading { overflow: hidden; }
         current = (current + 1) % slides.length;
         slides[current].classList.replace('opacity-0', 'opacity-100');
     }, 4000); // 4‑second interval
+    // Year
+     document.getElementById('year').textContent = new Date().getFullYear();
+
 </script>
 
 </html>

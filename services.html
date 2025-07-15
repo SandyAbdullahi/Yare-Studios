@@ -354,7 +354,7 @@
     </section>
 
 
- <!-- ======= FOOTER (shared) ======= -->
+    <!-- ======= FOOTER (shared) ======= -->
     <footer class="bg-fourth pt-20 pb-0 text-secondary">
         <div class="mx-auto mb-16 max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
             <div>
@@ -380,7 +380,8 @@
                 <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
                 </p>
                 <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
-                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320 355<br />https://vimeo.com/yarepicturestudio</p>
+                        class="hover:text-primary">yarepicturestudios@gmail.com</a><br>+254 (0) 712 320
+                    355<br />https://vimeo.com/yarepicturestudio</p>
             </div>
             <div>
                 <iframe
@@ -405,8 +406,6 @@
         menu.querySelectorAll('a').forEach(link =>
             link.addEventListener('click', () => menu.classList.add('hidden'))
         );
-        // Year
-        // document.getElementById('year').textContent = new Date().getFullYear();
 
         const openBtns = document.querySelectorAll('[data-service]');
         const modals = document.querySelectorAll('.modal');
@@ -428,6 +427,8 @@
                 }
             });
         });
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 
