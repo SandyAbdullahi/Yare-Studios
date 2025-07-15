@@ -46,71 +46,15 @@
             },
         };
     </script>
-    <style>
-        /* white screen that fades in 0.2 s */
-        #page-flash {
-            position: fixed;
-            inset: 0;
-            z-index: 9998;
-            background: #ffffff;
-            /* white flash */
-            animation: flash-fade 0.2s ease-out forwards;
-            pointer-events: none;
-            /* never blocks clicks */
-        }
+    <!-- Favicon: red “Y” (SVG) -->
+<link rel="icon" type="image/svg+xml"
+      href='data:image/svg+xml;utf8,
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+          <path d="M6 2h6l4 8 4-8h6l-7 14v14h-6V16L6 2z"
+                fill="%23c3403e"/>
+        </svg>'>
 
-        @keyframes flash-fade {
-            from {
-                opacity: 1;
-            }
-
-            /* fully white */
-            to {
-                opacity: 0;
-            }
-
-            /* transparent */
-        }
-        /* === THEMED SCROLLBAR ===============================================
-   Works in Chrome / Edge / Safari (WebKit & Blink) + a subtle fallback
-   for Firefox. ------------------------------------------------------- */
-
-    @layer utilities {
-
-      /* WebKit & Blink */
-      ::-webkit-scrollbar {
-        width: 8px;
-        /* vertical */
-        height: 8px;
-        /* horizontal */
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #000;
-        /* third color */
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #c3403e;
-        /* primary red */
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #d15452;
-        /* slightly lighter on hover */
-      }
-
-      /* Firefox */
-      * {
-        scrollbar-width: thin;
-        /* 8 px-ish */
-        scrollbar-color: #c3403e #000;
-        /* thumb | track */
-      }
-    }
-
-    </style>
+   <link rel="stylesheet" href="assets/styles/about.css">
 
 </head>
 
