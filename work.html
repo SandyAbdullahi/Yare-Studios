@@ -148,37 +148,42 @@ body, .modal-box {
 
 <body class="bg-third text-secondary antialiased">
 
-  <!-- ======= NAVBAR (same shared nav) ======= -->
-  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6">
-    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+  <!-- NAVBAR -->
+    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
+        <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
 
-    <!-- desktop links -->
-    <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
-      <a href="index.html" class="hover:text-primary">Home</a>
-      <a href="about.html" class="hover:text-primary">About</a>
-      <a href="services.html" class="hover:text-primary">Services</a>
-      <a href="work.html" class="text-primary">Our&nbsp;Work</a>
-      <a href="contact.html" class="hover:text-primary">Contact</a>
+        <!-- Desktop nav -->
+        <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
+            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+            <a href="contact.html" class="hover:text-primary">Contact</a>
+        </nav>
+
+        <!-- Hamburger -->
+        <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
+            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+            <span class="block h-0.5 w-6 bg-secondary"></span>
+        </button>
+    </header>
+
+    <!-- Mobile menu overlay -->
+    <nav id="mobile-menu"
+        class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
+        <!-- Close button -->
+        <button id="nav-close" aria-label="Close menu"
+            class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
+        <div
+            class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
+            <a href="index.html" class="hover:text-primary">Home</a>
+            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+            <a href="services.html" class="hover:text-primary">Services</a>
+            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+            <a href="contact.html" class="hover:text-primary">Contact</a>
+        </div>
     </nav>
-
-    <!-- hamburger -->
-    <button id="nav-toggle" class="sm:hidden">
-      <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
-    </button>
-  </header>
-
-  <!-- mobile overlay -->
-  <div id="mobile-menu" class="fixed inset-0 z-[9999] hidden flex-col items-center justify-center gap-8
-              bg-third/80 backdrop-blur-md backdrop-saturate-150">
-    <button id="nav-close" class="absolute top-6 right-6 text-3xl text-secondary">&times;</button>
-    <a href="index.html" class="text-xl uppercase tracking-widest hover:text-primary">Home</a>
-    <a href="about.html" class="text-xl uppercase tracking-widest hover:text-primary">About</a>
-    <a href="services.html" class="text-xl uppercase tracking-widest hover:text-primary">Services</a>
-    <a href="work.html" class="text-xl uppercase tracking-widest text-primary">Our&nbsp;Work</a>
-    <a href="contact.html" class="text-xl uppercase tracking-widest hover:text-primary">Contact</a>
-  </div>
-
   <!-- ======= HERO ======= -->
   <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 h-full w-full object-cover">
@@ -213,7 +218,7 @@ body, .modal-box {
 
       <!-- CARD EXAMPLE -->
       <button type="button"
-        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none documentary"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none narrative"
         data-work="film1">
         <img src="assets/images/works/igiza/igiza_poster.jpg" alt="Igiza"
           class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
@@ -234,15 +239,27 @@ body, .modal-box {
         <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
         <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
           <h3 class="text-lg font-semibold text-secondary">Black and Blue</h3>
+          <p class="text-xs uppercase tracking-wide text-primary">Narrative • 2023</p>
+        </div>
+
+      </button>
+      <button type="button"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none commercial"
+        data-work="film3">
+        <img src="assets/images/works/I&M/poster.png" alt="Black & Blue"
+          class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
+          <h3 class="text-lg font-semibold text-secondary">I&M Bank</h3>
           <p class="text-xs uppercase tracking-wide text-primary">Commercial • 2023</p>
         </div>
       </button>
 
-      <!-- …Add more cards for Narrative / Documentary / Production -->
+
     </div>
   </section>
   <!-- ======= WORK MODALS (add one per project) ======= -->
-
+  <!-- ======= IGIZA ======= -->
   <div id="modal-film1" class="modal hidden">
     <div class="modal-overlay"></div>
     <div class="modal-box">
@@ -268,23 +285,57 @@ body, .modal-box {
     </div>
   </div>
 
+  <!-- ======= BLACK AND BLUE ======= -->
   <div id="modal-film2" class="modal hidden">
     <div class="modal-overlay"></div>
     <div class="modal-box">
       <button class="modal-close">&times;</button>
-      <h3 class="modal-title mb-4">Black &amp; Blue&nbsp;— Trailer</h3>
-      <video controls playsinline class="mb-6 w-full rounded-lg">
-        <source src="assets/work/film1_trailer.mp4" type="video/mp4">
+      <h3 class="modal-title mb-4 text-primary">Black and Blue — Trailer</h3>
+      <video controls loop playsinline class="mb-6 w-full rounded-lg">
+        <source src="assets/hero-1.mp4" type="video/mp4">
       </video>
+      <div class="mx-auto mb-6 h-0.5 w-24 bg-primary"></div>
+
+      <img src="assets/images/works/black_and_blue/Picture11.png" alt="Black and blue key art"
+        class="mb-4 w-full h-48 object-cover rounded-lg" />
       <p class="modal-body text-left">
-        A gritty crime drama set in modern Nairobi exploring loyalty, justice, and redemption.
-        Official Selection: Durban Int’l Film Festival 2024.
+        Black & Blue is a Kenyan mockumentary series, now streaming on Showmax, the Kenyan Police enlists a civilian as
+        an Officer Commanding Station (OCS) in a bold attempt to rebrand themselves and better appeal to the public.
+        This new OCS brings a unique civilian perspective to policing, turning things upside down at the experimental
+        pilot station. A documentary team is hired to follow them and document the process, but inadvertently reveals
+        the shenanigans the police get up to behind the scenes as they grapple with adjusting to the new reforms.
       </p>
       <div class="mt-8 text-center">
         <a href="contact.html" class="modal-btn">Discuss Your Project</a>
       </div>
     </div>
   </div>
+  <!-- ======= I&M BANK ======= -->
+  <div id="modal-film3" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title mb-4 text-primary">I&M Bank — Commercial</h3>
+      <iframe src="https://player.vimeo.com/video/286149579?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+        width="500" height="300" frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        title="I&amp;M Premium banking"></iframe>
+      <div class="mx-auto mb-6 h-0.5 w-24 bg-primary"></div>
+
+      <img src="assets/images/works/I&M/Picture12.png" alt="I&M Bank key art"
+        class="mb-4 w-full h-48 object-cover rounded-lg" />
+      <p class="modal-body text-left">
+        Creative agency Y&R presents an advertisement for I&M Bank, showcasing the bank’s latest offering – a credit
+        card packed with a host of innovative features and unparalleled benefits. The advertisement features a
+        spokesperson from I&M Bank who sheds light on the exceptional promotions and special perks that come with this
+        credit card, inviting viewers to experience a new level of financial freedom and flexibility.
+      </p>
+      <div class="mt-8 text-center">
+        <a href="contact.html" class="modal-btn">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ======= CTA ======= -->
   <section class="bg-primary py-20 text-center text-secondary">
     <h2 class="mx-auto mb-6 max-w-3xl px-6 text-3xl sm:text-4xl font-extrabold tracking-tight">
@@ -296,41 +347,38 @@ body, .modal-box {
     </a>
   </section>
 
-  <!-- ======= FOOTER (shared) ======= -->
-  <footer class="bg-fourth py-16 text-secondary">
-    <div class="mx-auto max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
-      <div>
-        <h3 class="mb-4 text-lg font-bold text-primary">YARE</h3>
-        <p class="text-sm leading-relaxed text-secondary/80">
-          Crafting award-winning film &amp; television across Africa and beyond.
-        </p>
-      </div>
-      <nav class="space-y-2 text-sm">
-        <h4 class="mb-3 font-semibold text-secondary">Navigate</h4>
-        <a href="index.html" class="block hover:text-primary">Home</a>
-        <a href="about.html" class="block hover:text-primary">About</a>
-        <a href="services.html" class="block hover:text-primary">Services</a>
-        <a href="work.html" class="block text-primary">Our Work</a>
-        <a href="contact.html" class="block hover:text-primary">Contact</a>
-      </nav>
-      <nav class="space-y-2 text-sm">
-        <h4 class="mb-3 font-semibold text-secondary">Services</h4>
-        <a href="services.html#documentary" class="block hover:text-primary">Documentary</a>
-        <a href="services.html#narrative" class="block hover:text-primary">Narrative</a>
-        <a href="services.html#commercial" class="block hover:text-primary">Commercial</a>
-        <a href="services.html#production" class="block hover:text-primary">Production</a>
-      </nav>
-      <div class="text-sm">
-        <h4 class="mb-3 font-semibold text-secondary">Contact</h4>
-        <p>The Mall, Westlands<br>Nairobi, Kenya</p>
-        <p class="mt-2">+254&nbsp;712&nbsp;345&nbsp;678</p>
-        <p>hello@yarestudios.com</p>
-      </div>
-    </div>
-    <div class="bg-primary py-4 text-center text-third text-xs tracking-wide">
-      &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
-    </div>
-  </footer>
+     <!-- FOOTER (reuse from home) -->
+    <footer class="bg-fourth pt-20 pb-0 text-secondary">
+        <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-4 md:px-12">
+            <div>
+                <h3 class="text-3xl font-extrabold text-primary">YARE</h3>
+                <p class="mt-4 text-sm leading-relaxed text-secondary/80 max-w-xs">Cinematic storytellers shaping bold
+                    ideas into unforgettable films and campaigns.</p>
+            </div>
+            <div>
+                <h4 class="mb-4 text-lg font-semibold text-primary">Studio</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#story" class="hover:text-primary">Story</a></li>
+                    <li><a href="#team" class="hover:text-primary">Team</a></li>
+                    <li><a href="index.html#clients" class="hover:text-primary">Clients</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="mb-4 text-lg font-semibold text-primary">Contact</h4>
+                <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
+                </p>
+                <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
+                        class="hover:text-primary">info@yarepicturestudios.com</a><br>+254&nbsp;700&nbsp;000000</p>
+            </div>
+            <div>
+                <iframe class="h-40 w-full rounded-lg ring-1 ring-primary/30" loading="lazy" allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.1423635218688!2d36.806499615923364!3d-1.299463135893403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15daf15fee55%3A0x7b5f1cb357f1dab0!2sThe%20Mall%2C%20Westlands!5e0!3m2!1sen!2ske!4v1685643300000!5m2!1sen!2ske"></iframe>
+            </div>
+        </div>
+        <div class="mt-12 bg-primary py-4 text-center text-xs font-medium uppercase tracking-widest text-third">©
+            2025&nbsp;Yare Picture Studios — All&nbsp;Rights&nbsp;Reserved</div>
+    </footer>
 
 
 
