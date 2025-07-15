@@ -91,7 +91,25 @@
 
   <!-- NAVBAR -->
   <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
-    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+    <!-- NAV BRAND -->
+    <a href="index.html" class="block h-8" aria-label="Yare Picture Studio">
+
+      <!-- SVG text logo -->
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" role="img" height="100%">
+        <!-- Stylised red ‘Y’ -->
+        <path d="M12 0 L18 0 L30 22 L42 0 L48 0 L32 28 L32 40 L28 40 L28 28 Z" fill="#c3403e" />
+
+        <!-- “ARE” now also red -->
+        <text x="54" y="28" font-family="Inter Tight, sans-serif" font-size="28" font-weight="800" letter-spacing="4"
+          fill="#c3403e">ARE</text>
+
+        <!-- Tagline in white -->
+        <text x="0" y="38" font-family="Inter Tight, sans-serif" font-size="8" letter-spacing="3" fill="#f2f0ef">PICTURE
+          STUDIO</text>
+      </svg>
+    </a>
+
+
 
     <!-- Desktop nav -->
     <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
@@ -125,6 +143,7 @@
       <a href="contact.html" class="hover:text-primary">Contact</a>
     </div>
   </nav>
+
   <!-- ===== HERO ===== -->
   <section class="relative flex h-[60vh] items-center justify-center overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 h-full w-full object-cover bg-video">
