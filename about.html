@@ -71,6 +71,45 @@
 
             /* transparent */
         }
+        /* === THEMED SCROLLBAR ===============================================
+   Works in Chrome / Edge / Safari (WebKit & Blink) + a subtle fallback
+   for Firefox. ------------------------------------------------------- */
+
+    @layer utilities {
+
+      /* WebKit & Blink */
+      ::-webkit-scrollbar {
+        width: 8px;
+        /* vertical */
+        height: 8px;
+        /* horizontal */
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #000;
+        /* third color */
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #c3403e;
+        /* primary red */
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d15452;
+        /* slightly lighter on hover */
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: thin;
+        /* 8 px-ish */
+        scrollbar-color: #c3403e #000;
+        /* thumb | track */
+      }
+    }
+
     </style>
 
 </head>
