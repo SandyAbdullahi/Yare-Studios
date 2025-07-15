@@ -51,16 +51,17 @@
             backdrop-filter: blur(3px);
         }
 
-        .modal-box {
-            /* the white/black card */
-            position: relative;
-            max-width: 24rem;
-            /* 384 px – adjust if needed */
-            background: #000;
-            padding: 2rem 2.5rem 2.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
-        }
+      .modal-box{
+  position:relative;
+  max-width:42rem;          /* ≈ 672 px  → roomier “article” feel   */
+  max-height:80vh;          /* scrolls on very small screens        */
+  overflow-y:auto;
+  background:#000;
+  padding:2.5rem 3rem;
+  border-radius:0.5rem;
+  box-shadow:0 25px 50px -12px rgba(0,0,0,.25);
+}
+
 
         .modal-title {
             font-size: 1.5rem;
@@ -74,6 +75,7 @@
             color: #f2f0efcc;
             line-height: 1.5;
             margin-bottom: 1.5rem;
+            text-align:left;
         }
 
         .modal-btn {
@@ -149,7 +151,7 @@
         <div class="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
         <h1 class="relative z-10 px-6 text-center text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
        
-            From Concept to Credits
+    Stories in&nbsp;Motion
         </h1>
     </section>
 
@@ -218,73 +220,112 @@
 
         <!-- ========== MODALS ========== -->
         <!-- Each modal is hidden until its card is clicked -->
-        <div id="modal-service-documentary" class="modal hidden">
-            <div class="modal-overlay"></div>
+<!-- ========== DOCUMENTARY MODAL ========== -->
+<div id="modal-service-documentary" class="modal hidden">
+  <div class="modal-overlay"></div>
 
-            <div class="modal-box">
-                <button class="modal-close">&times;</button>
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
 
-                <!-- NEW: top banner image -->
-                <img src="assets/images/services/documentary.jpg" alt="Documentary"
-                    class="mb-4 h-40 w-full rounded object-cover" />
+    <!-- Title -->
+    <h3 class="modal-title mb-4">Documentary Filmmaking</h3>
 
-                <h3 class="modal-title">Documentary Filmmaking</h3>
-                <p class="modal-body">
-                    We craft vérité or hybrid documentaries rooted in deep research, striking visuals,
-                    and intimate access—guiding your story from pitch deck to festival premiere.
-                </p>
-                <a href="contact.html" class="modal-btn">Start a Documentary</a>
-            </div>
-        </div>
+    <!-- Image -->
+    <img src="assets/images/services/documentary.jpg"
+         alt="Documentary behind the scenes"
+         class="mb-6 w-full rounded-lg object-cover h-48" />
 
+    <!-- Copy -->
+    <p class="modal-body text-left">
+      From investigative exposés to intimate character portraits, our documentary unit
+      pairs journalistic rigor with cinematic craft. We handle research, field production,
+      archival clearances, and festival strategy—ensuring every truth-laden frame
+      resonates long after the credits roll.
+    </p>
 
-        <div id="modal-service-narrative" class="modal hidden">
-            <div class="modal-overlay"></div>
-            <div class="modal-box">
-                <button class="modal-close">&times;</button>
-                   <img src="assets/images/services/narrative.jpg"
-         alt="Documentary"
-         class="mb-4 h-40 w-full rounded object-cover" />
-                <h3 class="modal-title">Narrative Production</h3>
-                <p class="modal-body">
-                    Features, shorts, series—our writers, directors, and production crew bring
-                    emotionally charged stories to life with cinematic flair.
-                </p>
-                <a href="contact.html" class="modal-btn">Discuss a Script</a>
-            </div>
-        </div>
+    <!-- CTA -->
+    <div class="mt-8 text-center">
+      <a href="contact.html" class="modal-btn">Start a Documentary</a>
+    </div>
+  </div>
+</div>
 
-        <div id="modal-service-commercial" class="modal hidden">
-            <div class="modal-overlay"></div>
-            <div class="modal-box">
-                <button class="modal-close">&times;</button>
-                   <img src="assets/images/services/commercial.jpg"
-         alt="Documentary"
-         class="mb-4 h-40 w-full rounded object-cover" />
-                <h3 class="modal-title">Commercial Content</h3>
-                <p class="modal-body">
-                    From 6-second pre-rolls to multi-platform brand films—we create thumb-stopping
-                    visuals that convert.
-                </p>
-                <a href="contact.html" class="modal-btn">Book a Campaign</a>
-            </div>
-        </div>
+<!-- ========== NARRATIVE MODAL ========== -->
+<div id="modal-service-narrative" class="modal hidden">
+  <div class="modal-overlay"></div>
 
-        <div id="modal-service-production" class="modal hidden">
-            <div class="modal-overlay"></div>
-            <div class="modal-box">
-                <button class="modal-close">&times;</button>
-                   <img src="assets/images/services/production.jpg"
-         alt="Documentary"
-         class="mb-4 h-40 w-full rounded object-cover" />
-                <h3 class="modal-title">Full Production Services</h3>
-                <p class="modal-body">
-                    Creative development, crew hire, equipment, post… Our turnkey workflow keeps every
-                    frame on time and on budget.
-                </p>
-                <a href="contact.html" class="modal-btn">Plan a Shoot</a>
-            </div>
-        </div>
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
+
+    <h3 class="modal-title mb-4">Narrative Production</h3>
+
+    <img src="assets/images/services/narrative.jpg"
+         alt="Narrative set"
+         class="mb-6 w-full rounded-lg object-cover h-48" />
+
+    <p class="modal-body text-left">
+      Our writers, directors, and crew bring unforgettable characters and evocative
+      worlds to life. From script development through picture lock, we balance
+      creative ambition with disciplined scheduling—delivering festival-ready
+      features, shorts, and episodic series.
+    </p>
+
+    <div class="mt-8 text-center">
+      <a href="contact.html" class="modal-btn">Discuss a Script</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== COMMERCIAL MODAL ========== -->
+<div id="modal-service-commercial" class="modal hidden">
+  <div class="modal-overlay"></div>
+
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
+
+    <h3 class="modal-title mb-4">Commercial Content</h3>
+
+    <img src="assets/images/services/commercial.jpg"
+         alt="Commercial shoot"
+         class="mb-6 w-full rounded-lg object-cover h-48" />
+
+    <p class="modal-body text-left">
+      Thumb-stopping spots, branded docs, social cut-downs—we fuse audience insights
+      with cinematic visuals to boost engagement and conversions. From concept through
+      deliverables, we keep your brand in sharp focus.
+    </p>
+
+    <div class="mt-8 text-center">
+      <a href="contact.html" class="modal-btn">Book a Campaign</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PRODUCTION MODAL ========== -->
+<div id="modal-service-production" class="modal hidden">
+  <div class="modal-overlay"></div>
+
+  <div class="modal-box">
+    <button class="modal-close">&times;</button>
+
+    <h3 class="modal-title mb-4">Full Production Services</h3>
+
+    <img src="assets/images/services/production.jpg"
+         alt="Production crew"
+         class="mb-6 w-full rounded-lg object-cover h-48" />
+
+    <p class="modal-body text-left">
+      Pre-viz, logistics, gear, crew, post—our turnkey pipeline keeps every shot on time
+      and on budget. Whether you need one department or soup-to-nuts execution,
+      we tailor our workflow to your creative and commercial goals.
+    </p>
+
+    <div class="mt-8 text-center">
+      <a href="contact.html" class="modal-btn">Plan a Shoot</a>
+    </div>
+  </div>
+</div>
+
     </section>
 
     <!-- =========  CTA  ========= -->
