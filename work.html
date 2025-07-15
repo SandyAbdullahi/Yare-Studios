@@ -149,41 +149,41 @@ body, .modal-box {
 <body class="bg-third text-secondary antialiased">
 
   <!-- NAVBAR -->
-    <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
-        <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
+  <header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 sm:px-8">
+    <a href="index.html" class="text-xl font-extrabold tracking-widest text-primary">YARE</a>
 
-        <!-- Desktop nav -->
-        <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
-            <a href="index.html" class="hover:text-primary">Home</a>
-            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
-            <a href="services.html" class="hover:text-primary">Services</a>
-            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
-            <a href="contact.html" class="hover:text-primary">Contact</a>
-        </nav>
-
-        <!-- Hamburger -->
-        <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
-            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
-            <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
-            <span class="block h-0.5 w-6 bg-secondary"></span>
-        </button>
-    </header>
-
-    <!-- Mobile menu overlay -->
-    <nav id="mobile-menu"
-        class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
-        <!-- Close button -->
-        <button id="nav-close" aria-label="Close menu"
-            class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
-        <div
-            class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
-            <a href="index.html" class="hover:text-primary">Home</a>
-            <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
-            <a href="services.html" class="hover:text-primary">Services</a>
-            <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
-            <a href="contact.html" class="hover:text-primary">Contact</a>
-        </div>
+    <!-- Desktop nav -->
+    <nav class="hidden space-x-6 text-sm uppercase tracking-wider sm:block">
+      <a href="index.html" class="hover:text-primary">Home</a>
+      <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+      <a href="services.html" class="hover:text-primary">Services</a>
+      <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+      <a href="contact.html" class="hover:text-primary">Contact</a>
     </nav>
+
+    <!-- Hamburger -->
+    <button id="nav-toggle" aria-label="Open menu" class="sm:hidden">
+      <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+      <span class="block h-0.5 w-6 bg-secondary mb-1"></span>
+      <span class="block h-0.5 w-6 bg-secondary"></span>
+    </button>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <nav id="mobile-menu"
+    class="fixed inset-0 z-[9999] hidden bg-third/80 backdrop-blur-md backdrop-saturate-150 sm:hidden">
+    <!-- Close button -->
+    <button id="nav-close" aria-label="Close menu"
+      class="absolute top-6 right-6 text-secondary text-3xl leading-none">&times;</button>
+    <div
+      class="flex h-full flex-col items-center justify-center space-y-8 text-xl font-semibold uppercase tracking-wider">
+      <a href="index.html" class="hover:text-primary">Home</a>
+      <a href="about.html" class="hover:text-primary">About&nbsp;Us</a>
+      <a href="services.html" class="hover:text-primary">Services</a>
+      <a href="work.html" class="hover:text-primary">Our&nbsp;Work</a>
+      <a href="contact.html" class="hover:text-primary">Contact</a>
+    </div>
+  </nav>
   <!-- ======= HERO ======= -->
   <section class="relative flex h-[70vh] items-center justify-center overflow-hidden">
     <video autoplay muted loop playsinline class="absolute inset-0 h-full w-full object-cover">
@@ -218,7 +218,7 @@ body, .modal-box {
 
       <!-- CARD EXAMPLE -->
       <button type="button"
-        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none narrative"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none production"
         data-work="film1">
         <img src="assets/images/works/igiza/igiza_poster.jpg" alt="Igiza"
           class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
@@ -226,27 +226,27 @@ body, .modal-box {
         <div class="relative z-10 flex h-full flex-col items-center justify-end
                     p-4 text-center">
           <h3 class="text-lg font-semibold text-secondary">Igiza</h3>
-          <p class="text-xs uppercase tracking-wide text-primary">Narrative • 2024</p>
+          <p class="text-xs uppercase tracking-wide text-primary">Production • 2024</p>
         </div>
       </button>
 
       <!-- Duplicate ↓ with appropriate classes + data-work keys -->
       <button type="button"
-        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none commercial"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none production"
         data-work="film2">
         <img src="assets/images/works/black_and_blue/poster.png" alt="Black & Blue"
           class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
         <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
           <h3 class="text-lg font-semibold text-secondary">Black and Blue</h3>
-          <p class="text-xs uppercase tracking-wide text-primary">Narrative • 2023</p>
+          <p class="text-xs uppercase tracking-wide text-primary">Production • 2023</p>
         </div>
 
       </button>
       <button type="button"
         class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none commercial"
         data-work="film3">
-        <img src="assets/images/works/I&M/poster.png" alt="Black & Blue"
+        <img src="assets/images/works/I&M/poster.png" alt="I&M Bank"
           class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
         <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
         <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
@@ -254,8 +254,28 @@ body, .modal-box {
           <p class="text-xs uppercase tracking-wide text-primary">Commercial • 2023</p>
         </div>
       </button>
-
-
+      <button type="button"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none documentary"
+        data-work="film4">
+        <img src="assets/images/works/footsteps/poster.jpg" alt="Footsteps In the Dark"
+          class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
+          <h3 class="text-lg font-semibold text-secondary">Footsteps In the Dark</h3>
+          <p class="text-xs uppercase tracking-wide text-primary">Documentary • 2023</p>
+        </div>
+      </button>
+      <button type="button"
+        class="work-card group relative block h-64 overflow-hidden rounded-lg focus:outline-none narrative"
+        data-work="film5">
+        <img src="assets/images/works/vogue/Picture26.png" alt="Vogue"
+          class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-black/50 transition group-hover:bg-black/30"></div>
+        <div class="relative z-10 flex h-full flex-col items-center justify-end p-4 text-center">
+          <h3 class="text-lg font-semibold text-secondary">Vogue</h3>
+          <p class="text-xs uppercase tracking-wide text-primary">Documentary • 2023</p>
+        </div>
+      </button>
     </div>
   </section>
   <!-- ======= WORK MODALS (add one per project) ======= -->
@@ -336,6 +356,55 @@ body, .modal-box {
     </div>
   </div>
 
+  <!-- ======= FOOTSTEPS ======= -->
+  <div id="modal-film4" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title mb-4 text-primary">Footsteps in the dark</h3>
+      <img src="assets/images/works/footsteps/Picture30.png" alt="footsteps key art"
+        class="mb-4 w-full h-48 object-cover rounded-lg" />
+      <div class="mx-auto mb-6 h-0.5 w-24 bg-primary"></div>
+
+      <img src="assets/images/works/footsteps/Picture33.png" alt="footsteps key art"
+        class="mb-4 w-full h-48 object-cover rounded-lg" />
+      <p class="modal-body text-left">
+        An Intimate Examination of Muslim Kenyan’s Mental Health Struggles. This in-depth investigation delves into the
+        experiences of two Muslim Kenyans as they navigate their mental health journeys, including how their struggles
+        are manifested, perceived, and stigmatized within the Islamic community. Join us as we embark on a poignant
+        journey through the complexities of stigma and the devastating effects of abandonment in the face of mental
+        illness.
+      </p>
+      <div class="mt-8 text-center">
+        <a href="contact.html" class="modal-btn">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+  <!-- ======= VOGUE ======= -->
+  <div id="modal-film5" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-box">
+      <button class="modal-close">&times;</button>
+      <h3 class="modal-title mb-4 text-primary">Vogue</h3>
+      <iframe title="vimeo-player" src="https://player.vimeo.com/video/299412603?h=854ad47e05" width="500" height="300"
+        frameborder="0" allowfullscreen></iframe>
+      <div class="mx-auto mb-6 h-0.5 w-24 bg-primary"></div>
+
+      <img src="assets/images/works/vogue/Picture27.png" alt="vogue key art"
+        class="mb-4 w-full h-48 object-cover rounded-lg" />
+      <p class="modal-body text-left">
+        “Igiza” is a tale of twin sisters seeking revenge in Nairobi’s cutthroat fashion industry and money laundering
+        world. Serah Ndanu stars as Linda, a successful fashion designer, and Nicole, an imprisoned former criminal. As
+        Nicole sets her plan in motion, both sisters’ lives change. Adapted for Showmax the 13 episodes are now
+        streaming exclusively on the platform. A must-watch for fans of high-stakes drama and intense character
+        development.
+      </p>
+      <div class="mt-8 text-center">
+        <a href="contact.html" class="modal-btn">Discuss Your Project</a>
+      </div>
+    </div>
+  </div>
+
   <!-- ======= CTA ======= -->
   <section class="bg-primary py-20 text-center text-secondary">
     <h2 class="mx-auto mb-6 max-w-3xl px-6 text-3xl sm:text-4xl font-extrabold tracking-tight">
@@ -347,38 +416,41 @@ body, .modal-box {
     </a>
   </section>
 
-     <!-- FOOTER (reuse from home) -->
-    <footer class="bg-fourth pt-20 pb-0 text-secondary">
-        <div class="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-4 md:px-12">
-            <div>
-                <h3 class="text-3xl font-extrabold text-primary">YARE</h3>
-                <p class="mt-4 text-sm leading-relaxed text-secondary/80 max-w-xs">Cinematic storytellers shaping bold
-                    ideas into unforgettable films and campaigns.</p>
-            </div>
-            <div>
-                <h4 class="mb-4 text-lg font-semibold text-primary">Studio</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#story" class="hover:text-primary">Story</a></li>
-                    <li><a href="#team" class="hover:text-primary">Team</a></li>
-                    <li><a href="index.html#clients" class="hover:text-primary">Clients</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="mb-4 text-lg font-semibold text-primary">Contact</h4>
-                <p class="text-sm leading-relaxed text-secondary/80">The Mall, Westlands<br>Nairobi&nbsp;00100, Kenya
-                </p>
-                <p class="mt-2 text-sm text-secondary/80"><a href="mailto:info@yarepicturestudios.com"
-                        class="hover:text-primary">info@yarepicturestudios.com</a><br>+254&nbsp;700&nbsp;000000</p>
-            </div>
-            <div>
-                <iframe class="h-40 w-full rounded-lg ring-1 ring-primary/30" loading="lazy" allowfullscreen
-                    referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.1423635218688!2d36.806499615923364!3d-1.299463135893403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f15daf15fee55%3A0x7b5f1cb357f1dab0!2sThe%20Mall%2C%20Westlands!5e0!3m2!1sen!2ske!4v1685643300000!5m2!1sen!2ske"></iframe>
-            </div>
-        </div>
-        <div class="mt-12 bg-primary py-4 text-center text-xs font-medium uppercase tracking-widest text-third">©
-            2025&nbsp;Yare Picture Studios — All&nbsp;Rights&nbsp;Reserved</div>
-    </footer>
+  <!-- ======= FOOTER (shared) ======= -->
+  <footer class="bg-fourth py-16 text-secondary">
+    <div class="mx-auto max-w-6xl grid gap-10 px-6 md:grid-cols-4 md:px-12">
+      <div>
+        <h3 class="mb-4 text-lg font-bold text-primary">YARE</h3>
+        <p class="text-sm leading-relaxed text-secondary/80">
+          Crafting award-winning film &amp; television across Africa and beyond.
+        </p>
+      </div>
+      <nav class="space-y-2 text-sm">
+        <h4 class="mb-3 font-semibold text-secondary">Navigate</h4>
+        <a href="index.html" class="block hover:text-primary">Home</a>
+        <a href="about.html" class="block hover:text-primary">About</a>
+        <a href="services.html" class="block hover:text-primary">Services</a>
+        <a href="work.html" class="block text-primary">Our Work</a>
+        <a href="contact.html" class="block hover:text-primary">Contact</a>
+      </nav>
+      <nav class="space-y-2 text-sm">
+        <h4 class="mb-3 font-semibold text-secondary">Services</h4>
+        <a href="services.html#documentary" class="block hover:text-primary">Documentary</a>
+        <a href="services.html#narrative" class="block hover:text-primary">Narrative</a>
+        <a href="services.html#commercial" class="block hover:text-primary">Commercial</a>
+        <a href="services.html#production" class="block hover:text-primary">Production</a>
+      </nav>
+      <div class="text-sm">
+        <h4 class="mb-3 font-semibold text-secondary">Contact</h4>
+        <p>The Mall, Westlands<br>Nairobi, Kenya</p>
+        <p class="mt-2">+254&nbsp;712&nbsp;345&nbsp;678</p>
+        <p>hello@yarestudios.com</p>
+      </div>
+    </div>
+    <div class="bg-primary py-4 text-center text-third text-xs tracking-wide">
+      &copy; <span id="year"></span> Yare Picture Studios | All Rights Reserved
+    </div>
+  </footer>
 
 
 
