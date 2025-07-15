@@ -226,6 +226,26 @@
         <div class="absolute left-4 md:left-8 lg:left-12 top-1/2 -translate-y-1/2 h-[70%] w-px bg-secondary/60 z-20">
         </div>
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 h-px w-[80%] bg-secondary/60 z-20"></div>
+<!-- Centered camera-lens reticle -->
+<div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+  <!-- outer ring -->
+  <div class="relative h-24 w-24 md:h-32 md:w-32 rounded-full border-2 border-white/80">
+    <!-- inner ring -->
+    <div class="absolute inset-0 m-3 md:m-4 rounded-full border border-white/50"></div>
+
+    <!-- horizontal line -->
+    <div class="absolute inset-0 flex items-center justify-center">
+      <span class="block h-px w-full bg-white/40"></span>
+    </div>
+
+    <!-- vertical line -->
+    <div class="absolute inset-0 flex items-center justify-center rotate-90">
+      <span class="block h-px w-full bg-white/40"></span>
+    </div>
+  </div>
+</div>
+
+
 
         <!-- Recording timer -->
         <div class="absolute bottom-14 left-6 flex items-center space-x-2 font-mono text-sm text-secondary z-20">
